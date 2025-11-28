@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +15,7 @@ const Navbar = () => {
   const scrollToSection = (e, id) => {
     e.preventDefault();
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setMenuOpen(false);
   };
 
   return (
@@ -30,7 +32,8 @@ const Navbar = () => {
           <span className="font-['Cinzel'] text-2xl font-bold text-[#d4d4d4]">VB</span>
         </div>
         
-        <ul className="flex gap-10">
+        {/* Menú desktop */}
+        <ul className="hidden md:flex gap-10">
           {[
             { id: 'inicio', label: 'Inicio' },
             { id: 'sobre-mi', label: 'Sobre mí' },
@@ -50,7 +53,44 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
+
+        {/* Botón hamburguesa */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden flex flex-col gap-1.5 p-3 group"
+          aria-label="Toggle menu"
+        >
+          <span className={`w-6 h-0.5 bg-white group-hover:bg-[#d4af37] transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+          <span className={`w-6 h-0.5 bg-white group-hover:bg-[#d4af37] transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`}></span>
+          <span className={`w-6 h-0.5 bg-white group-hover:bg-[#d4af37] transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+        </button>
       </div>
+
+      {/* Menú mobile */}
+      {menuOpen && (
+        <div className="md:hidden bg-gradient-to-b from-[#0d0d0d]/98 to-[#0d0d0d]/95 backdrop-blur-sm border-t border-[#d4af37]/20 animate-in slide-in-from-top-2 duration-300">
+          <ul className="flex flex-col gap-0 px-6 py-8">
+            {[
+              { id: 'inicio', label: 'Inicio' },
+              { id: 'sobre-mi', label: 'Sobre mí' },
+              { id: 'proyectos', label: 'Proyectos' },
+              { id: 'skills', label: 'Skills' },
+              { id: 'contacto', label: 'Contacto' }
+            ].map((item, index) => (
+              <li key={item.id}>
+                <a
+                  href={`#${item.id}`}
+                  onClick={(e) => scrollToSection(e, item.id)}
+                  className="font-['Cinzel'] text-white hover:text-[#d4af37] hover:pl-2 transition-all duration-300 text-lg block py-3 border-b border-[#8c8c8c]/10 relative group"
+                >
+                  {item.label}
+                  <span className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-[#d4af37] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 };
