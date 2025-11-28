@@ -1,56 +1,19 @@
 import React, { useState } from 'react';
 
-const ProjectCard = ({ title, description, technologies, githubLinks, liveLink, isReversed }) => {
-  const [selectedDevice, setSelectedDevice] = useState('desktop');
-
+const ProjectCard = ({ title, description, technologies, githubLinks, image, isReversed }) => {
   return (
     <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-20 ${isReversed ? 'md:direction-rtl' : ''}`}>
       {/* Imagen del proyecto */}
       <div className={`${isReversed ? 'md:order-2' : ''}`}>
         <div className="relative group">
-          {/* Device Switcher */}
-          <div className="flex gap-3 mb-4 justify-center md:justify-start">
-            <button
-              onClick={() => setSelectedDevice('mobile')}
-              className={`px-4 py-2 border transition-all duration-300 font-['Cinzel'] text-sm ${
-                selectedDevice === 'mobile'
-                  ? 'border-[#d4af37] bg-[#d4af37]/20 text-[#d4af37]'
-                  : 'border-[#8c8c8c] bg-transparent text-[#8c8c8c] hover:border-[#d4af37]'
-              }`}
-            >
-              Mobile
-            </button>
-            <button
-              onClick={() => setSelectedDevice('desktop')}
-              className={`px-4 py-2 border transition-all duration-300 font-['Cinzel'] text-sm ${
-                selectedDevice === 'desktop'
-                  ? 'border-[#d4af37] bg-[#d4af37]/20 text-[#d4af37]'
-                  : 'border-[#8c8c8c] bg-transparent text-[#8c8c8c] hover:border-[#d4af37]'
-              }`}
-            >
-              Desktop
-            </button>
-            <button
-              onClick={() => setSelectedDevice('tablet')}
-              className={`px-4 py-2 border transition-all duration-300 font-['Cinzel'] text-sm ${
-                selectedDevice === 'tablet'
-                  ? 'border-[#d4af37] bg-[#d4af37]/20 text-[#d4af37]'
-                  : 'border-[#8c8c8c] bg-transparent text-[#8c8c8c] hover:border-[#d4af37]'
-              }`}
-            >
-              Tablet
-            </button>
-          </div>
-
           {/* Preview Image */}
-          <div className="relative overflow-hidden bg-[#1a1a1a] border-2 border-[#8c8c8c] group-hover:border-[#d4af37] transition-all duration-300">
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div className="relative">
             <img
-              src={`https://via.placeholder.com/600x400/1a1a1a/d4af37?text=${title}+${selectedDevice}`}
-              alt={`${title} - ${selectedDevice}`}
-              className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
+              src={image}
+              alt={title}
+              className="w-full border-2 border-[#8c8c8c] group-hover:border-[#d4af37] transition-all duration-300 rounded-sm shadow-lg group-hover:shadow-[0_0_30px_rgba(212,175,55,0.3)]"
             />
-            <div className="absolute inset-0 bg-[#d4af37]/0 group-hover:bg-[#d4af37]/10 transition-all duration-300"></div>
+            <div className="absolute inset-0 bg-[#d4af37]/0 group-hover:bg-[#d4af37]/5 transition-all duration-300 pointer-events-none rounded-sm"></div>
           </div>
         </div>
       </div>
@@ -93,19 +56,6 @@ const ProjectCard = ({ title, description, technologies, githubLinks, liveLink, 
               {link.label}
             </a>
           ))}
-          {liveLink && (
-            <a
-              href={liveLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group px-6 py-3 border-2 border-[#d4af37] bg-[#d4af37]/10 text-[#d4af37] hover:bg-[#d4af37] hover:text-[#0d0d0d] transition-all duration-300 flex items-center gap-2 font-['Cinzel'] text-sm shadow-[0_0_15px_rgba(212,175,55,0.3)]"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-              Ver Demo
-            </a>
-          )}
         </div>
       </div>
     </div>
