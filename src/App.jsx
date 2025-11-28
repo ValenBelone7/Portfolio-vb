@@ -3,6 +3,9 @@ import Navbar from './components/Navbar.jsx'
 import Hero from './components/Hero.jsx'
 import About from './components/About.jsx' 
 import Projects from './components/Projects.jsx'
+import Skills from './components/Skills.jsx'
+import Contact from './components/Contact.jsx'
+import Footer from './components/Footer.jsx'
 import React from 'react'
 
 export default function App() {
@@ -19,12 +22,9 @@ export default function App() {
       <Hero />
       <About />
       <Projects />
-      
-      <div className="h-screen flex items-center justify-center bg-gradient-to-b from-[#0d0d0d] to-[#1a1a1a]">
-        <p className="text-2xl text-[#8c8c8c] font-['Cinzel']">
-          Próximos componentes: Skills y Contacto
-        </p>
-      </div>
+      <Skills />
+      <Contact />
+      <Footer />
     </div>
   );
 }
