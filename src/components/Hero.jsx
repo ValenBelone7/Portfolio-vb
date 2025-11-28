@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const Hero = () => {
   return (
-    <section id="inicio" className="min-h-screen flex flex-col justify-center items-center text-center relative bg-gradient-to-br from-[#0d0d0d] via-[#1a1a2e] to-[#0d0d0d] overflow-hidden py-20">
+    <section id="inicio" className="min-h-screen flex flex-col justify-center items-center text-center relative bg-gradient-to-b from-[#0d0d0d] via-[#1a1a2e] to-[#0f1419] overflow-hidden py-20">
       {/* Efecto de niebla */}
       <div className="absolute inset-0 opacity-20 animate-fog" 
            style={{background: "url('data:image/svg+xml,%3Csvg width=\"100\" height=\"100\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cfilter id=\"noise\"%3E%3CfeTurbulence baseFrequency=\"0.02\" numOctaves=\"3\"/%3E%3C/filter%3E%3Crect width=\"100\" height=\"100\" filter=\"url(%23noise)\" opacity=\"0.05\"/%3E%3C/svg%3E')"}}

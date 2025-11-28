@@ -2,6 +2,7 @@ import './App.css'
 import Navbar from './components/Navbar.jsx'
 import Hero from './components/Hero.jsx'
 import About from './components/About.jsx' 
+import Projects from './components/Projects.jsx'
 import React from 'react'
 
 export default function App() {
@@ -17,10 +18,11 @@ export default function App() {
       <Navbar />
       <Hero />
       <About />
+      <Projects />
       
       <div className="h-screen flex items-center justify-center bg-gradient-to-b from-[#0d0d0d] to-[#1a1a1a]">
         <p className="text-2xl text-[#8c8c8c] font-['Cinzel']">
-          Próximos componentes: Proyectos, Skills y Contacto
+          Próximos componentes: Skills y Contacto
         </p>
       </div>
     </div>

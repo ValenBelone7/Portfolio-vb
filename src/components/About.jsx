@@ -3,7 +3,7 @@ import Divider from "./Divider";
 
 const About = () => {
   return (
-    <section id="sobre-mi" className="py-24 px-6 md:px-[10%] bg-gradient-to-b from-[#0f1419] to-[#0d0d0d]">
+    <section id="sobre-mi" className="py-12 px-6 md:px-[10%] bg-gradient-to-b from-[#0f1419] to-[#0d0d0d]">
       <div className="max-w-7xl mx-auto">
         <h2 className="font-['Cinzel'] text-4xl md:text-5xl text-[#d4af37] text-center mb-2">
           Sobre mí

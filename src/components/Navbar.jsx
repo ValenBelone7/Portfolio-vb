@@ -42,7 +42,7 @@ const Navbar = () => {
               <a
                 href={`#${item.id}`}
                 onClick={(e) => scrollToSection(e, item.id)}
-                className="font-['Cinzel'] text-[#d4d4d4] hover:text-[#d4af37] transition-colors relative group text-base inline-block"
+                className="font-['Cinzel'] text-white hover:text-[#d4af37] transition-colors relative group text-base inline-block"
               >
                 {item.label}
                 <span className="absolute bottom-[-5px] left-0 w-0 h-[2px] bg-[#d4af37] group-hover:w-full transition-all duration-300"></span>
