@@ -15,7 +15,7 @@ const Projects = () => {
     },
     {
       title: "Miniblog Full Stack",
-      description: "API REST completa desarrollada con Flask que evolucionó desde templates con Bootstrap hasta una arquitectura moderna con autenticación JWT, roles de usuario, y validación con Marshmallow. El frontend consume la API usando React + Vite con PrimeReact, ofreciendo una experiencia de usuario fluida y moderna para la gestión de publicaciones.",
+      description: "API REST completa desarrollada con Flask con autenticación JWT, roles de usuario, y validación con Marshmallow. El frontend consume la API usando React + Vite con PrimeReact, ofreciendo una experiencia de usuario fluida y moderna para la gestión de publicaciones.",
       technologies: ["Python", "Flask", "React", "Vite", "PrimeReact", "JWT", "Marshmallow", "MySQL"],
       githubLinks: [
         { label: "Backend", url: "https://github.com/ValenBelone7/efi-miniblog" },

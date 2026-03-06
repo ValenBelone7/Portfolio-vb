@@ -58,7 +58,7 @@ const Hero = () => {
           <div className="absolute inset-0 bg-[#1e3a5f] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 -z-10"></div>
         </a>
         
-        <a href="/CV_Valentin_Belone_Desarrollo_Software.pdf" 
+        <a href="/CV_Valentin_Belone_Desarrollador_Software.pdf" 
            download
            className="group px-8 py-4 font-['Cinzel'] border-2 border-[#d4af37] bg-[#d4af37]/10 text-[#d4af37] hover:bg-[#d4af37] hover:text-[#0d0d0d] transition-all duration-300 relative overflow-hidden flex items-center gap-3 shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)]">
           <svg className="w-5 h-5 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
