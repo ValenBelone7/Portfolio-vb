@@ -24,13 +24,38 @@ const About = () => {
           
           <div className="space-y-6">
             <p className="text-base md:text-lg leading-relaxed text-[#d4d4d4]">
-              Técnico Superior en Desarrollo de Software, con una sólida formación en programación y tecnologías modernas. Me apasiona crear soluciones que integren lógica, diseño y funcionalidad.
+              Soy Valentín Belone, Técnico Superior en Desarrollo de Software especializado en crear soluciones web completas desde el relevamiento de requerimientos hasta el despliegue en producción.
             </p>
+            
+            <ul className="space-y-3 ml-4">
+              <li className="flex items-start gap-2">
+                <span className="text-[#d4af37] font-bold mt-0.5">▸</span>
+                <span className="text-base md:text-lg leading-relaxed text-[#d4d4d4]">
+                  <span className="text-[#d4af37] font-semibold">Desarrollo Full-Stack:</span> React, Django, Python en proyectos reales
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-[#d4af37] font-bold mt-0.5">▸</span>
+                <span className="text-base md:text-lg leading-relaxed text-[#d4d4d4]">
+                  <span className="text-[#d4af37] font-semibold">Automatización e IA:</span> Agentes conversacionales, bots inteligentes, workflows complejos
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-[#d4af37] font-bold mt-0.5">▸</span>
+                <span className="text-base md:text-lg leading-relaxed text-[#d4d4d4]">
+                  <span className="text-[#d4af37] font-semibold">Proyectos en Producción:</span> Sistemas SaaS, gestión de datos en tiempo real, integraciones
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-[#d4af37] font-bold mt-0.5">▸</span>
+                <span className="text-base md:text-lg leading-relaxed text-[#d4d4d4]">
+                  <span className="text-[#d4af37] font-semibold">Metodologías Ágiles:</span> Scrum, trabajo colaborativo, buenas prácticas
+                </span>
+              </li>
+            </ul>
+            
             <p className="text-base md:text-lg leading-relaxed text-[#d4d4d4]">
-              Actualmente continúo fortaleciendo mis conocimientos en <span className="text-[#d4af37] font-semibold">Python</span>, <span className="text-[#d4af37] font-semibold">JavaScript</span>, <span className="text-[#d4af37] font-semibold">React</span>, bases de datos y DevOps, con el objetivo de seguir creciendo profesionalmente dentro del mundo del desarrollo de software.
-            </p>
-            <p className="text-base md:text-lg leading-relaxed text-[#d4d4d4]">
-              Me motiva trabajar en equipo, aprender de otros profesionales y participar en proyectos que impulsen la innovación y la mejora continua. Siempre busco nuevos desafíos que me permitan aprender, aportar valor y seguir evolucionando en el ámbito tecnológico.
+              Me apasiona resolver problemas reales con tecnología y construir aplicaciones que generen impacto genuino en negocios y usuarios finales.
             </p>
             
             <div className="pt-4">

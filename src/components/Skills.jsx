@@ -4,29 +4,33 @@ import Divider from "./Divider.jsx";
 const Skills = () => {
   const skillsRow1 = [
     { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+    { name: "Django", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" },
     { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
-    { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
     { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-    { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-    { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-    { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+    { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+    { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+    { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
     { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+    { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+    { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
   ];
 
   const skillsRow2 = [
-    { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-    { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-    { name: "R", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" },
-    { name: "Arduino", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" },
-    { name: "Bootstrap", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" },
-    { name: "Vite", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg" },
-    { name: "SQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+    { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+    { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+    { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+    { name: "n8n", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
     { name: "JWT", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/json/json-original.svg" },
+    { name: "REST APIs", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+    { name: "GitHub Actions", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+    { name: "Vercel", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" },
+    { name: "Render", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-original.svg" },
+    { name: "Scrum", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg" },
   ];
 
-  // Triplicar arrays para loop perfecto
-  const row1Items = [...skillsRow1, ...skillsRow1, ...skillsRow1];
-  const row2Items = [...skillsRow2, ...skillsRow2, ...skillsRow2];
+  // Duplicar arrays para loop perfecto
+  const row1Items = [...skillsRow1, ...skillsRow1];
+  const row2Items = [...skillsRow2, ...skillsRow2];
 
   return (
     <section id="skills" className="py-24 bg-gradient-to-b from-[#0f1419] to-[#0d0d0d] overflow-hidden">
@@ -45,7 +49,11 @@ const Skills = () => {
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#0f1419] to-transparent z-20 pointer-events-none"></div>
 
         {/* Primera fila - scroll hacia la izquierda */}
-        <div className="overflow-hidden pb-12">
+        <div className="overflow-hidden pb-12 relative">
+          {/* Gradient fade izquierda */}
+          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#0d0d0d] to-transparent z-20 pointer-events-none"/>
+          {/* Gradient fade derecha */}
+          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#0d0d0d] to-transparent z-20 pointer-events-none"/>
           <div className="flex gap-16 animate-scroll-left">
             {row1Items.map((skill, index) => (
               <div
@@ -68,7 +76,11 @@ const Skills = () => {
         </div>
 
         {/* Segunda fila - scroll hacia la derecha */}
-        <div className="overflow-hidden pt-12">
+        <div className="overflow-hidden pt-12 relative">
+          {/* Gradient fade izquierda */}
+          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#0d0d0d] to-transparent z-20 pointer-events-none"/>
+          {/* Gradient fade derecha */}
+          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#0d0d0d] to-transparent z-20 pointer-events-none"/>
           <div className="flex gap-16 animate-scroll-right">
             {row2Items.map((skill, index) => (
               <div
@@ -97,13 +109,13 @@ const Skills = () => {
             transform: translateX(0);
           }
           to {
-            transform: translateX(calc(-33.333%));
+            transform: translateX(calc(-50%));
           }
         }
         
         @keyframes scroll-right {
           from {
-            transform: translateX(calc(-33.333%));
+            transform: translateX(calc(-50%));
           }
           to {
             transform: translateX(0);

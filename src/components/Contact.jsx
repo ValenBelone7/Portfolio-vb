@@ -172,9 +172,25 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-6 py-3 bg-[#d4af37] text-[#0d0d0d] font-['Cinzel'] font-semibold hover:bg-[#e5c158] disabled:bg-[#8c8c8c] transition-colors duration-300"
+                className={`w-full px-8 py-3 rounded-md font-semibold text-lg font-['Cinzel'] transition-all duration-300 ease-out
+                  ${isSubmitting 
+                    ? 'bg-gray-500 cursor-not-allowed opacity-70' 
+                    : submitStatus === 'success'
+                    ? 'bg-green-500 text-white'
+                    : 'bg-gradient-to-r from-[#d4af37] to-[#c39920] text-[#0d0d0d]'
+                  }
+                  hover:shadow-[0_0_25px_rgba(212,175,55,0.5)]
+                  hover:scale-105
+                  active:scale-98
+                  focus:outline-2 focus:outline-offset-2 focus:outline-[#d4af37]
+                  disabled:hover:scale-100 disabled:hover:shadow-none`}
               >
-                {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
+                {isSubmitting 
+                  ? 'Enviando...' 
+                  : submitStatus === 'success' 
+                  ? '✓ Mensaje enviado'
+                  : 'Enviar Mensaje'
+                }
               </button>
 
               {/* Mensajes de estado */}

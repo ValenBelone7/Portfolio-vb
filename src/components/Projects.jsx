@@ -5,32 +5,34 @@ import Divider from './Divider.jsx';
 const Projects = () => {
   const projects = [
     {
-      title: "Sistema Inmobiliario",
-      description: "Aplicación web completa para gestión inmobiliaria con dos interfaces diferenciadas: área pública con catálogo de propiedades, filtros de búsqueda, detalles de inmuebles y formulario de contacto; y panel administrativo con dashboard para empleados, gestión de propiedades y solicitudes. Desarrollado con énfasis en UX/UI y diseño responsive.",
-      technologies: ["HTML", "CSS", "JavaScript", "Chakra UI"],
+      title: "SaaS de Gestión de Contratos Inmobiliarios",
+      description: "Plataforma completa para gestionar contratos de alquiler. Automatiza cálculos de ajustes por inflación, seguimiento de pagos, detección de moras y genera recibos legales automáticamente. Proyecto entregado en producción y en uso.",
+      technologies: ["React", "Django", "TypeScript", "PostgreSQL", "JWT", "Docker", "Vercel", "Render"],
       githubLinks: [
-        { label: "Ver Código", url: "https://github.com/ValenBelone7/Efi---Inmobiliaria---Prog-2" }
+        { label: "Privado", url: "#" }
       ],
-      image: "/desktop-inmobiliaria.png"
+      image: "/saas-image.png",
+      case: "Cliente pasó de gestionar en Excel a sistema centralizado"
     },
     {
-      title: "Miniblog Full Stack",
-      description: "API REST completa desarrollada con Flask con autenticación JWT, roles de usuario, y validación con Marshmallow. El frontend consume la API usando React + Vite con PrimeReact, ofreciendo una experiencia de usuario fluida y moderna para la gestión de publicaciones.",
-      technologies: ["Python", "Flask", "React", "Vite", "PrimeReact", "JWT", "Marshmallow", "MySQL"],
+      title: "Agente de IA para Compra de Tickets de Bus",
+      description: "Bot conversacional con IA que automatiza la compra de tickets de bus vía Telegram. Busca destinos, selecciona horarios, gestiona pasajeros y completa compras por chat. Diseñado como alternativa moderna a portales tradicionales.",
+      technologies: ["n8n", "LLMs", "Telegram API", "Automatización", "IA", "Workflows"],
+      githubLinks: [
+        { label: "Privado", url: "#" }
+      ],
+      image: "/bot-telegram-ai.svg",
+      case: "Proyecto en posesión del cliente - Sistema de compra completamente automatizado"
+    },
+    {
+      title: "Plataforma de Blogs - Sistema Full-Stack",
+      description: "Aplicación web para crear y publicar blogs con panel de administración. Incluye autenticación de usuarios, gestión de artículos con editor enriquecido y sistema de roles. Proyecto académico implementado con arquitectura profesional.",
+      technologies: ["React", "Flask", "Python", "Vite", "PrimeReact", "MySQL", "JWT", "Marshmallow"],
       githubLinks: [
         { label: "Backend", url: "https://github.com/ValenBelone7/efi-miniblog" },
         { label: "Frontend", url: "https://github.com/Tiagooo10/efi-javascript" }
       ],
       image: "/desktop-miniblog.png"
-    },
-    {
-      title: "Análisis Predictivo en R",
-      description: "Proyecto de ciencia de datos que implementa modelos predictivos e inferenciales sobre conjuntos de datos reales. Incluye análisis estadístico avanzado, visualizaciones interactivas, pruebas de hipótesis y conclusiones fundamentadas. Los resultados fueron presentados con visualizaciones profesionales en Canva.",
-      technologies: ["R", "Análisis de Datos", "Machine Learning", "Estadística", "Visualización"],
-      githubLinks: [
-        { label: "Ver Proyecto", url: "#" }
-      ],
-      image: "/r-img.png"
     }
   ];
 
