@@ -1,31 +1,44 @@
-import React from "react";
+import { useState } from "react";
+
 
 const Hero = () => {
+const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <section
       id="inicio"
       className="min-h-screen flex flex-col justify-center items-center text-center relative bg-gradient-to-b from-[#0d0d0d] via-[#1a1a2e] to-[#0f1419] overflow-hidden pt-20 pb-0"
     >
       {/* Imagen japonesa de fondo */}
-      <div className="absolute bottom-[-25%] left-0 w-full flex justify-center pointer-events-none overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-full flex justify-center pointer-events-none overflow-hidden">
         <img
-          src={"hero-bg-min.png"}
+          src="hero-bg-min.webp"
           alt="Japanese Background"
-          className="
-            w-full
+          loading="eager"
+          onLoad={() => setImageLoaded(true)}
+          className={`
+            w-[140%]
+            sm:w-[120%]
+            md:w-full
             max-w-[1600px]
-            object-cover
-            opacity-[0.16]
-            blur-[0.3px]
+            h-auto
+            object-contain
             select-none
-          "
+            transition-all duration-[1800ms] ease-out
+
+            ${
+              imageLoaded
+                ? "opacity-[0.16] blur-[0.3px]"
+                : "opacity-0 blur-sm scale-[1.02]"
+            }
+          `}
           style={{
-            height: "85%",
             objectPosition: "center bottom",
+            transform: "translateY(22%)",
             maskImage:
-              "linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.9) 70%, transparent 100%)",
+              "linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.9) 70%, transparent 100%)",
             WebkitMaskImage:
-              "linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.9) 70%, transparent 100%)",
+              "linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.9) 70%, transparent 100%)",
             filter:
               "drop-shadow(0 0 40px rgba(212,175,55,0.12))",
           }}
