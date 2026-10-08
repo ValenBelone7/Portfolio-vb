@@ -3,6 +3,8 @@ import { caseStudies } from "@/content/case-studies";
 import { featuredProjects } from "@/content/projects";
 import { iconFor } from "@/content/tech-map";
 import { getDictionary, localizePath, type Locale } from "@/i18n";
+import { caseStudyJsonLd } from "@/lib/jsonld";
+import { JsonLd } from "../JsonLd";
 import { NavLinks } from "../layout/NavLinks";
 import { ScreenshotCarousel } from "../media/ScreenshotCarousel";
 import { Reveal } from "../motion/Reveal";
@@ -66,6 +68,7 @@ export function CaseStudyPage({ locale, slug }: { locale: Locale; slug: string }
 
   return (
     <article className="shell pt-28 pb-24">
+      <JsonLd data={caseStudyJsonLd(locale, slug)} />
       <Link
         href={`${localizePath("/", locale)}#projects`}
         className="group panel inline-flex h-10 items-center gap-2 rounded-full px-4 text-sm text-muted transition-colors hover:text-fg"

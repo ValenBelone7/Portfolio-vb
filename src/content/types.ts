@@ -12,6 +12,8 @@ export type ProjectLink = {
 
 export type FeaturedProject = {
   slug: string;
+  /** Título (≤ 60) y descripción (≤ 160) para buscadores y previsualizaciones. */
+  seo: { title: Localized; description: Localized };
   name: string;
   subtitle: Localized;
   kind: Localized;

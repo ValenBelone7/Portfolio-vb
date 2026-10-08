@@ -7,4 +7,6 @@ export const profile = {
   agency: { name: "PB DevHouse", url: "https://www.pb-devhouse.com/" },
   siteUrl: "https://www.belone-dev.com.ar",
   cvPath: "/CV_Valentin_Belone_Backend.pdf",
+  /** Última actualización del contenido (sitemap y datos estructurados). */
+  updated: "2026-10-08",
 } as const;

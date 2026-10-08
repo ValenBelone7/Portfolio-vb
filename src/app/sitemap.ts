@@ -11,6 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return paths.flatMap((path) =>
     locales.map((locale) => ({
       url: abs(localizePath(path, locale)),
+      lastModified: profile.updated,
+      changeFrequency: "monthly" as const,
       priority: path === "/" ? 1 : 0.8,
       alternates: {
         languages: Object.fromEntries(locales.map((l) => [l, abs(localizePath(path, l))])),

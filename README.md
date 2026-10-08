@@ -13,8 +13,10 @@ production systems built for real clients, with a case study for each featured p
   language has its own root layout, which gives every page the right `<html lang>` and `hreflang` links.
 - **Light and dark themes:** follows the system preference, remembers the visitor's choice and
   applies it before the first paint, so there is no theme flash.
-- **SEO:** per-page metadata, generated Open Graph images (one per case study), `sitemap.xml` with
-  language alternates, `robots.txt` and `schema.org/Person` structured data.
+- **SEO:** per-page titles and descriptions sized for search results, canonical URLs, `hreflang`
+  alternates, Open Graph images generated per case study, `sitemap.xml` with last-modified dates,
+  `robots.txt`, a web manifest, and schema.org structured data (`ProfilePage` + `Person` +
+  `WebSite` on the home page, `BreadcrumbList` + `CreativeWork` on each case study).
 - **Accessibility:** WCAG AA contrast in both themes (the light theme uses a darker accent for that
   reason), skip link, keyboard navigation, descriptive `alt` text on every screenshot.
 

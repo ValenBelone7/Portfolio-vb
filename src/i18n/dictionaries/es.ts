@@ -20,6 +20,7 @@ export const es = {
   theme: { toggle: "Cambiar entre modo claro y oscuro" },
   language: { switchTo: "English", switchLabel: "Ver el sitio en inglés" },
   hero: {
+    h1Suffix: "",
     giant: "Backend",
     nameLine: "Valentín Belone — Desarrollador",
     role: "Desarrollador Backend",

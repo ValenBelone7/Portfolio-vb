@@ -27,10 +27,11 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
       <h1 className="relative z-0 mt-10 lg:absolute lg:inset-x-0 lg:top-[19%] lg:mt-0">
         <span className="shell block font-mono text-sm tracking-[0.18em] text-chalk/80 uppercase">
           {dict.hero.nameLine}
-        </span>
+        </span>{" "}
         <span className="shell mt-3 block font-display text-[clamp(3.2rem,18.5vw,18rem)] leading-[0.85] font-bold text-chalk uppercase">
           {dict.hero.giant}
         </span>
+        {dict.hero.h1Suffix && <span className="sr-only">{dict.hero.h1Suffix}</span>}
       </h1>
 
       {/* Diagrama del stack por delante de la palabra. */}

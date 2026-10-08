@@ -19,8 +19,8 @@ export function findProject(slug: string) {
 export function caseStudyMetadata(locale: Locale, slug: string): Metadata {
   const project = findProject(slug);
   const base = buildMetadata(locale, `/proyectos/${slug}`);
-  const title = `${project.name} — ${project.subtitle[locale]} | Valentín Belone`;
-  const description = project.summary[locale];
+  const title = project.seo.title[locale];
+  const description = project.seo.description[locale];
   const role = getDictionary(locale).hero.role;
 
   return {

@@ -21,8 +21,9 @@ export const en: Dictionary = {
   theme: { toggle: "Toggle light and dark mode" },
   language: { switchTo: "Español", switchLabel: "Ver el sitio en español" },
   hero: {
+    h1Suffix: " Developer",
     giant: "Backend",
-    nameLine: "Valentín Belone — Developer",
+    nameLine: "Valentín Belone —",
     role: "Backend Developer",
     eyebrow: "Backend · Python · Django · PostgreSQL",
     tagline: "Backend developer working with Python and Django. I build systems that real businesses use every day.",

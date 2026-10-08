@@ -6,6 +6,16 @@ import type { FeaturedProject, Project } from "./types";
 export const featuredProjects: FeaturedProject[] = [
   {
     slug: "contrata",
+    seo: {
+      title: {
+        es: "Contrata, gestor de contratos de alquiler | Valentín Belone",
+        en: "Contrata, rental contract manager | Valentín Belone",
+      },
+      description: {
+        es: "Caso de estudio: sistema en Django REST y PostgreSQL que administra 300 a 400 contratos de alquiler, con aumentos por IPC, ICL y Casa Propia.",
+        en: "Case study: a Django REST and PostgreSQL system that manages 300–400 rental contracts, with automatic IPC, ICL and Casa Propia increases.",
+      },
+    },
     name: "Contrata",
     subtitle: { es: "Gestor de contratos inmobiliarios", en: "Real estate contract manager" },
     kind: { es: "Cliente real + producto SaaS", en: "Real client + SaaS product" },
@@ -26,6 +36,16 @@ export const featuredProjects: FeaturedProject[] = [
   },
   {
     slug: "criptodery",
+    seo: {
+      title: {
+        es: "Criptodery, mini app de trading cripto | Valentín Belone",
+        en: "Criptodery, trading Mini App in Lemon Cash | Valentín Belone",
+      },
+      description: {
+        es: "Caso de estudio: pasarela de pagos cripto con el SDK de Lemon Cash y un índice de riesgo de 21 variables con IA, para más de 1.400 usuarios.",
+        en: "Case study: a crypto payment gateway built on the Lemon Cash SDK and a 21-variable risk index with AI, used by 1,400+ verified users.",
+      },
+    },
     name: "Criptodery",
     subtitle: { es: "Mini app de trading dentro de Lemon Cash", en: "Trading Mini App inside Lemon Cash" },
     kind: { es: "Empleo part-time + cliente de PB DevHouse", en: "Part-time role + PB DevHouse client" },
@@ -40,6 +60,16 @@ export const featuredProjects: FeaturedProject[] = [
   },
   {
     slug: "gestor-kioscos",
+    seo: {
+      title: {
+        es: "Gestor de Kioscos, SaaS de stock y ventas | Valentín Belone",
+        en: "Gestor de Kioscos, stock and sales SaaS | Valentín Belone",
+      },
+      description: {
+        es: "Caso de estudio: SaaS multi-tenant en Next.js y PostgreSQL con stock atómico, fiado, reportes de ganancia real y facturación con ARCA.",
+        en: "Case study: a multi-tenant Next.js and PostgreSQL SaaS with atomic stock, store credit, real-profit reports and ARCA invoicing.",
+      },
+    },
     name: "Gestor de Kioscos",
     subtitle: {
       es: "Stock, ventas y fiado para comercios chicos",

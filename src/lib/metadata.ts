@@ -12,6 +12,21 @@ export function buildMetadata(locale: Locale, path = "/"): Metadata {
     title: dict.meta.title,
     description: dict.meta.description,
     authors: [{ name: profile.name, url: profile.siteUrl }],
+    creator: profile.name,
+    applicationName: profile.name,
+    category: "technology",
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
+    formatDetection: { email: false, telephone: false, address: false },
     alternates: {
       canonical: url,
       languages: {

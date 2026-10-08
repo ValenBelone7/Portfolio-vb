@@ -46,8 +46,7 @@ export function About({ locale, dict }: { locale: Locale; dict: Dictionary }) {
                 id="about-title"
                 className="text-right font-display text-[clamp(4.2rem,16vw,13rem)] leading-[0.92] font-bold text-signal lowercase"
               >
-                <span className="block">{top}</span>
-                <span className="block">{bottom}</span>
+                <span className="block">{top}</span> <span className="block">{bottom}</span>
               </h2>
             </Reveal>
             <Reveal delay={0.15} y={30} className="absolute bottom-0 left-0 w-[46%] sm:left-[2%] sm:w-[40%]">
