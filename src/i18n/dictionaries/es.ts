@@ -6,6 +6,7 @@ export const es = {
       "Desarrollador backend con Python, Django y PostgreSQL. Sistemas en producción para clientes reales y proyectos con IA aplicada.",
   },
   nav: {
+    talk: "Hablemos",
     label: "Navegación principal",
     projects: "Proyectos",
     experience: "Experiencia",
@@ -20,15 +21,23 @@ export const es = {
   language: { switchTo: "English", switchLabel: "Ver el sitio en inglés" },
   hero: {
     role: "Desarrollador Backend",
+    eyebrow: "Backend · Python · Django · PostgreSQL",
     tagline: "Desarrollador backend con Python y Django. Construyo sistemas que negocios reales usan todos los días.",
     available: "Disponible para trabajo remoto",
+    location: "Córdoba, Argentina · UTC-3",
     titleBefore: "Construyo sistemas que",
     titleHighlight: "negocios reales",
     titleAfter: "usan todos los días.",
-    lead: "Desarrollador backend con Python y Django: lógica de negocio, modelado de datos y APIs en producción.",
-    consoleTitle: "api · respuesta",
+    stats: [
+      { value: "4", label: "sistemas en producción" },
+      { value: "300–400", label: "contratos activos" },
+      { value: "+1.400", label: "usuarios verificados" },
+    ],
+    inProduction: "En producción",
     viewProjects: "Ver proyectos",
     downloadCv: "Descargar CV",
+    prevProject: "Proyecto anterior",
+    nextProject: "Proyecto siguiente",
   },
   sections: {
     metrics: "En números",
@@ -43,7 +52,7 @@ export const es = {
     languages: "Idiomas",
     contact: "Contacto",
     contactIntro:
-      "Busco un puesto remoto de jornada completa como desarrollador backend. Escribime por mail o por LinkedIn, o dejame un mensaje acá.",
+      "Busco un puesto remoto de jornada completa como desarrollador backend. Escribime por mail o por LinkedIn.",
   },
   project: {
     product: "Sitio del producto",
@@ -58,18 +67,9 @@ export const es = {
     subjects: "Materias destacadas",
   },
   contact: {
-    heading: "¿Hablamos?",
+    heading: "Hablemos",
     copy: "Copiar email",
     copied: "¡Copiado!",
-    form: "Enviame un mensaje",
-    name: "Nombre",
-    email: "Email",
-    message: "Mensaje",
-    send: "Enviar",
-    sending: "Enviando…",
-    success: "Mensaje enviado. Te respondo pronto.",
-    error: "No se pudo enviar. Probá de nuevo o escribime directo al mail.",
-    subject: "Nuevo mensaje desde el portfolio",
   },
   caseStudy: {
     toc: "En esta página",

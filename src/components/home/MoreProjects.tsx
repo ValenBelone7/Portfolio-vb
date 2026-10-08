@@ -7,10 +7,10 @@ import { ProjectLinks, Section, Tags } from "../ui";
 
 function ProjectTile({ p, locale, dict }: { p: Project; locale: Locale; dict: Dictionary }) {
   return (
-    <SpotlightCard className="glass flex h-full flex-col gap-4 rounded-3xl p-6 transition-transform duration-300 hover:-translate-y-1">
+    <SpotlightCard className="panel flex h-full flex-col gap-4 rounded-3xl p-6 transition-transform duration-300 hover:-translate-y-1">
       <div>
         <p className="font-mono text-[11px] tracking-[0.15em] text-muted uppercase">{p.kind[locale]}</p>
-        <h3 className="mt-2 font-display text-xl font-semibold">{p.name}</h3>
+        <h3 className="mt-2 font-display text-xl">{p.name}</h3>
       </div>
       <p className="flex-1 text-sm leading-relaxed text-muted">{p.summary[locale]}</p>
       <Tags items={p.stack} />
@@ -23,22 +23,16 @@ function ProjectTile({ p, locale, dict }: { p: Project; locale: Locale; dict: Di
   );
 }
 
-/** Tarjeta "en desarrollo": borde con un gradiente que gira. */
+/** Tarjeta "en desarrollo": borde punteado, todavía sin links. */
 function UpcomingTile({ p, locale, dict }: { p: Project; locale: Locale; dict: Dictionary }) {
   return (
-    <div className="relative h-full overflow-hidden rounded-3xl p-px">
-      <div
-        aria-hidden="true"
-        className="absolute -inset-[150%] animate-[spin_7s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0deg,var(--accent)_60deg,transparent_120deg)] opacity-80"
-      />
-      <div className="relative flex h-full flex-col gap-4 rounded-[calc(1.5rem-1px)] bg-bg/95 p-6 backdrop-blur-xl sm:p-8">
-        <p className="inline-flex w-fit items-center gap-2 rounded-full bg-accent/12 px-3 py-1 font-mono text-[11px] tracking-[0.15em] text-accent uppercase ring-1 ring-accent/30">
-          <span className="size-1.5 animate-pulse rounded-full bg-accent" />
-          {dict.project.upcoming}
-        </p>
-        <h3 className="font-display text-2xl font-semibold">{p.name}</h3>
-        <p className="max-w-xl leading-relaxed text-muted">{p.summary[locale]}</p>
-      </div>
+    <div className="flex h-full flex-col gap-4 rounded-3xl border border-dashed border-accent/50 p-6 sm:p-8">
+      <p className="eyebrow inline-flex w-fit items-center gap-2 text-accent">
+        <span className="size-1.5 animate-pulse rounded-full bg-accent" />
+        {dict.project.upcoming}
+      </p>
+      <h3 className="font-display text-3xl">{p.name}</h3>
+      <p className="max-w-xl leading-relaxed text-muted">{p.summary[locale]}</p>
     </div>
   );
 }
@@ -49,24 +43,24 @@ export function MoreProjects({ locale, dict }: { locale: Locale; dict: Dictionar
   const [first, ...rest] = regular;
 
   return (
-    <Section id="more-projects" index="02" title={dict.sections.more}>
+    <Section id="more-projects" index="02" title={dict.sections.more} wide>
       <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {/* Laboratorio va aparte: es prueba de criterio y método, no un proyecto más. */}
         <li className="md:col-span-2">
           <Reveal className="h-full">
-            <SpotlightCard className="glass relative h-full overflow-hidden rounded-3xl p-6 sm:p-8">
+            <SpotlightCard className="panel relative h-full overflow-hidden rounded-3xl p-6 sm:p-8">
               <div className="flex flex-wrap items-center gap-3">
                 <p className="font-mono text-[11px] tracking-[0.15em] text-accent uppercase">{dict.sections.method}</p>
                 <span className="rounded-full border border-accent/40 px-2.5 py-0.5 font-mono text-[11px] text-accent">
                   {dict.project.noAi}
                 </span>
               </div>
-              <h3 className="mt-3 font-display text-3xl font-semibold">{laboratorio.name}</h3>
+              <h3 className="mt-3 font-display text-3xl">{laboratorio.name}</h3>
               <p className="mt-3 max-w-2xl leading-relaxed text-muted">{laboratorio.summary[locale]}</p>
               <ol className="mt-6 flex flex-wrap items-center gap-2 font-mono text-xs" aria-label={laboratorio.name}>
                 {dict.project.labSteps.map((step, i) => (
                   <li key={step} className="flex items-center gap-2">
-                    <span className="rounded-lg border border-glass-border bg-glass px-2.5 py-1.5 text-fg">{step}</span>
+                    <span className="rounded-lg border border-line bg-surface px-2.5 py-1.5 text-fg">{step}</span>
                     {i < dict.project.labSteps.length - 1 && (
                       <span className="text-accent" aria-hidden="true">
                         →

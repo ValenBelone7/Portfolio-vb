@@ -15,7 +15,7 @@ function Block({ id, title, children }: { id: string; title: string; children: R
   return (
     <section id={id} aria-labelledby={`${id}-title`} className="scroll-mt-28">
       <Reveal>
-        <h2 id={`${id}-title`} className="mb-6 font-display text-3xl font-semibold tracking-tight">
+        <h2 id={`${id}-title`} className="mb-6 font-display text-3xl">
           {title}
         </h2>
         {children}
@@ -28,7 +28,7 @@ function CheckList({ items, cols = false }: { items: string[]; cols?: boolean })
   return (
     <ul className={`grid gap-3 ${cols ? "md:grid-cols-2" : ""}`}>
       {items.map((item) => (
-        <li key={item} className="glass flex gap-3 rounded-2xl p-4 text-sm leading-relaxed text-muted">
+        <li key={item} className="panel flex gap-3 rounded-2xl p-4 text-sm leading-relaxed text-muted">
           <svg
             className="mt-0.5 size-4 shrink-0 text-accent"
             viewBox="0 0 24 24"
@@ -65,10 +65,10 @@ export function CaseStudyPage({ locale, slug }: { locale: Locale; slug: string }
   ].map((i) => ({ ...i, href: `#${i.id}` }));
 
   return (
-    <article className="mx-auto max-w-6xl px-4 pt-10 pb-24 sm:px-6">
+    <article className="shell pt-10 pb-24">
       <Link
         href={`${localizePath("/", locale)}#projects`}
-        className="group glass inline-flex h-10 items-center gap-2 rounded-full px-4 text-sm text-muted transition-colors hover:text-fg"
+        className="group panel inline-flex h-10 items-center gap-2 rounded-full px-4 text-sm text-muted transition-colors hover:text-fg"
       >
         <span aria-hidden="true" className="transition-transform group-hover:-translate-x-1">
           ←
@@ -79,7 +79,7 @@ export function CaseStudyPage({ locale, slug }: { locale: Locale; slug: string }
       <header className="mt-10 grid gap-10 lg:grid-cols-[1fr_1.25fr] lg:items-center">
         <div className="animate-rise">
           <p className="font-mono text-xs tracking-[0.15em] text-accent uppercase">{project.kind[locale]}</p>
-          <h1 className="mt-3 font-display text-5xl font-semibold tracking-tight sm:text-6xl">{project.name}</h1>
+          <h1 className="mt-3 font-display text-5xl sm:text-6xl">{project.name}</h1>
           <p className="mt-3 text-xl text-muted">{project.subtitle[locale]}</p>
           <p className="mt-6 inline-block rounded-xl bg-accent/12 px-3 py-2 font-mono text-xs leading-relaxed text-accent ring-1 ring-accent/30">
             {project.highlight[locale]}
@@ -90,7 +90,7 @@ export function CaseStudyPage({ locale, slug }: { locale: Locale; slug: string }
               return (
                 <li
                   key={s}
-                  className="group glass inline-flex items-center gap-2 rounded-full px-3 py-1.5 font-mono text-xs text-muted"
+                  className="group panel inline-flex items-center gap-2 rounded-full px-3 py-1.5 font-mono text-xs text-muted"
                 >
                   {icon && <TechLogo icon={icon} brand className="size-3.5" />}
                   {s}
@@ -119,7 +119,7 @@ export function CaseStudyPage({ locale, slug }: { locale: Locale; slug: string }
       <div className="mt-20 grid gap-12 lg:grid-cols-[12rem_1fr]">
         <aside className="hidden lg:block">
           <nav aria-label={t.toc} className="sticky top-28">
-            <NavLinks items={toc} vertical />
+            <NavLinks items={toc} variant="toc" />
           </nav>
         </aside>
 
@@ -127,7 +127,7 @@ export function CaseStudyPage({ locale, slug }: { locale: Locale; slug: string }
           <div className="grid gap-5 md:grid-cols-2">
             <section id="problem" aria-labelledby="problem-title" className="scroll-mt-28">
               <Reveal className="h-full">
-                <SpotlightCard className="glass h-full rounded-3xl p-6 sm:p-8">
+                <SpotlightCard className="panel h-full rounded-3xl p-6 sm:p-8">
                   <h2 id="problem-title" className="font-mono text-xs tracking-[0.15em] text-accent uppercase">
                     {t.problem}
                   </h2>
@@ -158,7 +158,7 @@ export function CaseStudyPage({ locale, slug }: { locale: Locale; slug: string }
             <CheckList items={study.solution[locale]} cols={study.solution[locale].length > 2} />
             {study.subsection && (
               <div className="mt-10">
-                <h3 className="mb-4 font-display text-xl font-semibold">{study.subsection.title[locale]}</h3>
+                <h3 className="mb-4 font-display text-xl">{study.subsection.title[locale]}</h3>
                 <CheckList items={study.subsection.items[locale]} cols />
               </div>
             )}
@@ -169,8 +169,8 @@ export function CaseStudyPage({ locale, slug }: { locale: Locale; slug: string }
             {study.role.groups && (
               <div className={`mt-8 grid gap-5 ${study.role.groups.length > 1 ? "lg:grid-cols-2" : ""}`}>
                 {study.role.groups.map((group) => (
-                  <div key={group.title.es} className="glass rounded-3xl p-6">
-                    <h3 className="font-display text-lg font-semibold">{group.title[locale]}</h3>
+                  <div key={group.title.es} className="panel rounded-3xl p-6">
+                    <h3 className="font-display text-lg">{group.title[locale]}</h3>
                     <ul className="mt-4 space-y-3 text-sm leading-relaxed text-muted">
                       {group.items[locale].map((item) => (
                         <li key={item} className="flex gap-3">
@@ -193,8 +193,8 @@ export function CaseStudyPage({ locale, slug }: { locale: Locale; slug: string }
           <Block id="architecture" title={t.architecture}>
             <div className="space-y-6">
               {study.architectures.map((arch, i) => (
-                <div key={i} className="glass rounded-3xl p-6 sm:p-8">
-                  {arch.title && <h3 className="mb-6 font-display text-lg font-semibold">{arch.title[locale]}</h3>}
+                <div key={i} className="panel rounded-3xl p-6 sm:p-8">
+                  {arch.title && <h3 className="mb-6 font-display text-lg">{arch.title[locale]}</h3>}
                   <ArchitectureDiagram arch={arch} locale={locale} />
                 </div>
               ))}
@@ -205,14 +205,14 @@ export function CaseStudyPage({ locale, slug }: { locale: Locale; slug: string }
             <ol className="grid gap-5 md:grid-cols-2">
               {study.challenges.map((c, i) => (
                 <li key={c.title.es} className="md:[&:last-child:nth-child(odd)]:col-span-2">
-                  <SpotlightCard className="glass h-full rounded-3xl p-6 sm:p-7">
+                  <SpotlightCard className="panel h-full rounded-3xl p-6 sm:p-7">
                     <span
                       aria-hidden="true"
-                      className="font-display text-4xl leading-none font-bold text-transparent [-webkit-text-stroke:1.2px_var(--accent)]"
+                      className="font-display text-4xl leading-none text-transparent [-webkit-text-stroke:1.2px_var(--accent)]"
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="mt-4 font-display text-lg font-semibold">{c.title[locale]}</h3>
+                    <h3 className="mt-4 font-display text-lg">{c.title[locale]}</h3>
                     <p className="mt-3 text-sm leading-relaxed text-muted">{c.body[locale]}</p>
                   </SpotlightCard>
                 </li>
@@ -223,16 +223,16 @@ export function CaseStudyPage({ locale, slug }: { locale: Locale; slug: string }
       </div>
 
       <nav aria-label={t.others} className="mt-24">
-        <h2 className="mb-6 font-display text-2xl font-semibold">{t.others}</h2>
+        <h2 className="mb-6 font-display text-2xl">{t.others}</h2>
         <ul className="grid gap-5 sm:grid-cols-2">
           {others.map((p) => (
             <li key={p.slug}>
               <Link
                 href={localizePath(`/proyectos/${p.slug}`, locale)}
-                className="group glass flex items-center justify-between gap-4 rounded-3xl p-6 transition-colors hover:border-accent/60"
+                className="group panel flex items-center justify-between gap-4 rounded-3xl p-6 transition-colors hover:border-accent/60"
               >
                 <span>
-                  <span className="block font-display text-xl font-semibold">{p.name}</span>
+                  <span className="block font-display text-xl">{p.name}</span>
                   <span className="mt-1 block text-sm text-muted">{p.subtitle[locale]}</span>
                 </span>
                 <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-accent text-accent-fg transition-transform group-hover:rotate-45">

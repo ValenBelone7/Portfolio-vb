@@ -1,4 +1,4 @@
-import { display, geistMono, geistSans } from "@/app/fonts";
+import { body, display, mono } from "@/app/fonts";
 import { getDictionary, type Locale } from "@/i18n";
 import { RevealScript } from "@/components/motion/RevealScript";
 import { Backdrop } from "./Backdrop";
@@ -15,7 +15,7 @@ export function RootDocument({ locale, children }: { locale: Locale; children: R
     <html
       lang={locale}
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} ${display.variable} antialiased`}
+      className={`${body.variable} ${mono.variable} ${display.variable} antialiased`}
     >
       <body className="relative flex min-h-dvh flex-col font-sans">
         <ThemeScript />

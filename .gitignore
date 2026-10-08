@@ -50,3 +50,6 @@ next-env.d.ts
 PORTFOLIO_CONTEXT.md
 IMG_*.JPG
 IMG_*.jpg
+
+# referencias de diseño (imágenes de terceros)
+/referencias

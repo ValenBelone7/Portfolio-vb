@@ -9,8 +9,8 @@ export function Footer({ dict }: { dict: Dictionary }) {
   ];
 
   return (
-    <footer className="mx-auto w-full max-w-6xl px-4 pt-10 pb-10 sm:px-6">
-      <div className="flex flex-col gap-4 border-t border-glass-border pt-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
+    <footer className="shell pt-10 pb-10">
+      <div className="flex flex-col gap-4 border-t border-line pt-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
         <p>
           <span className="font-display text-fg">{profile.name}</span> · {dict.footer.role}
         </p>

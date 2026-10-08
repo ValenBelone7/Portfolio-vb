@@ -1,17 +1,22 @@
-import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
+import { Instrument_Serif, JetBrains_Mono, Newsreader } from "next/font/google";
 
-export const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-export const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-/** Títulos: más carácter que la sans del cuerpo. */
-export const display = Bricolage_Grotesque({
+/** Títulos: serif editorial de alto contraste. */
+export const display = Instrument_Serif({
   variable: "--font-display",
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+});
+
+/** Cuerpo: serif pensada para leer en pantalla. */
+export const body = Newsreader({
+  variable: "--font-body",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+});
+
+/** Detalles técnicos: etiquetas, fechas, stack. */
+export const mono = JetBrains_Mono({
+  variable: "--font-mono-face",
   subsets: ["latin"],
 });

@@ -18,7 +18,7 @@ export function ScrollLine({ className }: { className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   useScrollProgress(ref, apply, measure);
   return (
-    <div ref={ref} aria-hidden="true" className={`absolute top-0 bottom-0 w-px bg-glass-border ${className ?? ""}`}>
+    <div ref={ref} aria-hidden="true" className={`absolute top-0 bottom-0 w-px bg-line ${className ?? ""}`}>
       <div
         style={{ transform: "scaleY(0)" }}
         className="h-full w-full origin-top bg-linear-to-b from-accent via-accent to-transparent"

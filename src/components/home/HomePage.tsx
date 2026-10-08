@@ -4,12 +4,11 @@ import { Contact } from "./Contact";
 import { Experience } from "./Experience";
 import { FeaturedProjects } from "./FeaturedProjects";
 import { Hero } from "./Hero";
-import { Metrics } from "./Metrics";
 import { MoreProjects } from "./MoreProjects";
 import { PersonJsonLd } from "./PersonJsonLd";
 import { Skills } from "./Skills";
 
-// Orden según PORTFOLIO_CONTEXT.md, sección 9.
+// Orden según PORTFOLIO_CONTEXT.md, sección 9. Las métricas viven en el hero.
 export function HomePage({ locale }: { locale: Locale }) {
   const dict = getDictionary(locale);
 
@@ -17,7 +16,6 @@ export function HomePage({ locale }: { locale: Locale }) {
     <>
       <PersonJsonLd locale={locale} />
       <Hero locale={locale} dict={dict} />
-      <Metrics locale={locale} dict={dict} />
       <FeaturedProjects locale={locale} dict={dict} />
       <MoreProjects locale={locale} dict={dict} />
       <Experience locale={locale} dict={dict} />

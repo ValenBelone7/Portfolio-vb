@@ -16,7 +16,7 @@ export function LanguageSwitch({ text, label }: { text: string; label: string })
       lang={target}
       // Sin aria-label: el nombre accesible tiene que coincidir con el texto visible.
       title={label}
-      className="inline-flex h-10 items-center rounded-full px-3 font-mono text-xs text-muted transition-colors hover:bg-glass-strong hover:text-fg"
+      className="inline-flex h-10 items-center rounded-full px-3 font-mono text-xs text-cream/75 transition-colors hover:bg-cream/10 hover:text-cream"
     >
       {text}
     </a>

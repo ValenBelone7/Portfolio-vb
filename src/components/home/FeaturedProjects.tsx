@@ -9,7 +9,7 @@ import { buttonPrimary, ProjectLinks, Section, Tags } from "../ui";
 
 export function FeaturedProjects({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   return (
-    <Section id="projects" index="01" title={dict.sections.featured} intro={dict.sections.featuredIntro}>
+    <Section id="projects" index="01" title={dict.sections.featured} intro={dict.sections.featuredIntro} wide>
       <ol className="space-y-10 sm:space-y-14">
         {featuredProjects.map((p, i) => {
           const study = caseStudies[p.slug];
@@ -21,7 +21,7 @@ export function FeaturedProjects({ locale, dict }: { locale: Locale; dict: Dicti
           return (
             <li key={p.slug}>
               <Reveal>
-                <SpotlightCard className="glass rounded-[2rem] p-5 sm:p-8 lg:p-10">
+                <SpotlightCard className="panel rounded-[2rem] p-5 sm:p-8 lg:p-10">
                   <article className="grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
                     <div className={`lg:col-span-7 ${flip ? "lg:order-2" : ""}`}>
                       <ScreenshotCarousel
@@ -36,13 +36,13 @@ export function FeaturedProjects({ locale, dict }: { locale: Locale; dict: Dicti
                       <div className="flex items-baseline gap-4">
                         <span
                           aria-hidden="true"
-                          className="font-display text-6xl leading-none font-bold text-transparent [-webkit-text-stroke:1.5px_var(--accent)]"
+                          className="font-display text-6xl leading-none text-transparent [-webkit-text-stroke:1.5px_var(--accent)]"
                         >
                           {String(i + 1).padStart(2, "0")}
                         </span>
                         <p className="font-mono text-xs tracking-[0.15em] text-muted uppercase">{p.kind[locale]}</p>
                       </div>
-                      <h3 className="mt-5 font-display text-3xl font-semibold tracking-tight sm:text-4xl">{p.name}</h3>
+                      <h3 className="mt-5 font-display text-3xl sm:text-4xl">{p.name}</h3>
                       <p className="mt-1 text-lg text-muted">{p.subtitle[locale]}</p>
                       <p className="mt-5 inline-block rounded-xl bg-accent/12 px-3 py-2 font-mono text-xs leading-relaxed text-accent ring-1 ring-accent/30">
                         {p.highlight[locale]}

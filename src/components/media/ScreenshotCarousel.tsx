@@ -44,7 +44,7 @@ export function ScreenshotCarousel({ shots, device, labels, address, priority }:
   }, [embla]);
 
   const arrow =
-    "glass-strong inline-flex size-10 items-center justify-center rounded-full text-fg transition-transform hover:scale-105 active:scale-95";
+    "panel-strong inline-flex size-10 items-center justify-center rounded-full text-fg transition-transform hover:scale-105 active:scale-95";
 
   const slides = (
     <div ref={emblaRef} className="overflow-hidden" aria-roledescription="carousel">
@@ -66,7 +66,7 @@ export function ScreenshotCarousel({ shots, device, labels, address, priority }:
               onClick={() => setLightbox(i)}
               aria-label={`${labels.open}: ${shot.alt}`}
               className={`group/shot relative block w-full cursor-zoom-in overflow-hidden ${
-                device === "mobile" ? "rounded-[1.75rem] border-[6px] border-[#071626] shadow-xl" : "aspect-[16/10]"
+                device === "mobile" ? "rounded-[1.75rem] border-[6px] border-[#2B0A11] shadow-xl" : "aspect-[16/10]"
               }`}
             >
               <Image
@@ -89,13 +89,13 @@ export function ScreenshotCarousel({ shots, device, labels, address, priority }:
   return (
     <div>
       {device === "desktop" ? (
-        <div className="overflow-hidden rounded-2xl border border-glass-border bg-[#071626] shadow-[0_30px_60px_-25px_rgb(0_0_0/0.55)]">
+        <div className="overflow-hidden rounded-2xl border border-line bg-[#2B0A11] shadow-[0_30px_60px_-25px_rgb(0_0_0/0.55)]">
           <div className="flex items-center gap-2 border-b border-white/10 px-4 py-2.5" aria-hidden="true">
-            <span className="size-2.5 rounded-full bg-[#E76F3C]" />
+            <span className="size-2.5 rounded-full bg-[#F4C2C2]" />
             <span className="size-2.5 rounded-full bg-white/25" />
             <span className="size-2.5 rounded-full bg-white/25" />
             {address && (
-              <span className="mx-auto truncate rounded-full bg-white/5 px-4 py-1 font-mono text-[11px] text-[#A9B4C0]">
+              <span className="mx-auto truncate rounded-full bg-white/5 px-4 py-1 font-mono text-[11px] text-[#C9A9AC]">
                 {address}
               </span>
             )}

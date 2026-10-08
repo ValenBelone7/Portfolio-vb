@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 type Item = { href: string; id: string; label: string };
 
 /** Links de sección que resaltan la sección visible. */
-export function NavLinks({ items, vertical = false }: { items: Item[]; vertical?: boolean }) {
+export function NavLinks({ items, variant = "toc" }: { items: Item[]; variant?: "bar" | "toc" }) {
+  const vertical = variant === "toc";
   const [active, setActive] = useState<string | null>(null);
 
   useEffect(() => {
@@ -25,15 +26,23 @@ export function NavLinks({ items, vertical = false }: { items: Item[]; vertical?
   }, [items]);
 
   return (
-    <ul className={`flex gap-1 text-sm ${vertical ? "flex-col items-start" : "items-center"}`}>
+    <ul className={`flex ${vertical ? "flex-col items-stretch" : "items-center gap-1"}`}>
       {items.map((item) => (
         <li key={item.id}>
           <a
             href={item.href}
             aria-current={active === item.id ? "true" : undefined}
-            className={`block rounded-full px-3 py-1.5 transition-colors duration-300 ${
-              active === item.id ? "bg-accent/15 text-fg" : "text-muted hover:text-fg"
-            }`}
+            className={
+              variant === "bar"
+                ? `relative block px-3 py-1.5 font-mono text-[11px] tracking-[0.16em] uppercase transition-colors after:absolute after:inset-x-3 after:-bottom-0.5 after:h-px after:origin-left after:bg-blush after:transition-transform after:duration-300 ${
+                    active === item.id
+                      ? "text-cream after:scale-x-100"
+                      : "text-cream/70 after:scale-x-0 hover:text-cream"
+                  }`
+                : `block border-l-2 py-1.5 pl-4 text-sm transition-colors duration-300 ${
+                    active === item.id ? "border-accent text-fg" : "border-line text-muted hover:text-fg"
+                  }`
+            }
           >
             {item.label}
           </a>

@@ -24,19 +24,22 @@ Next.js 16 (App Router, Cache Components) · React 19 · TypeScript · Tailwind 
 
 ## Design
 
-Glassmorphism on elevated layers only (navigation, cards) over a slowly drifting backdrop, with
-3D tilt on key cards. Every micro-interaction is CSS or a few lines of vanilla JS (one shared
-`IntersectionObserver` for scroll reveals), and all of it respects `prefers-reduced-motion` and
-`prefers-reduced-transparency`.
+Editorial layout on a wide 12-column grid: the hero sets the surname at display size behind a
+black-and-white cutout portrait, sections keep their titles in a sticky left column, and the
+contact section closes on the same burgundy band as the hero. Type is all serif (Instrument Serif
+for display, Newsreader for text) plus JetBrains Mono for technical details. Micro-interactions
+are CSS or a few lines of vanilla JS (one shared `IntersectionObserver` for scroll reveals) and
+respect `prefers-reduced-motion`.
 
-| Token      | Light           | Dark                   | Contrast on background |
-| ---------- | --------------- | ---------------------- | ---------------------- |
-| Background | `#F0EEE9` cream | `#0B1F33` night blue   | n/a                    |
-| Text       | `#0B1F33`       | `#F0EEE9`              | 14.4 : 1               |
-| Muted text | `#4B5B6B`       | `#A9B4C0`              | 6.0 : 1 / 7.9 : 1      |
-| Accent     | `#B4471C`       | `#E76F3C` burnt orange | 4.7 : 1 / 5.4 : 1      |
+| Token          | Light              | Dark      | Contrast on background |
+| -------------- | ------------------ | --------- | ---------------------- |
+| Background     | `#FAF5F2`          | `#1A0609` | n/a                    |
+| Text           | `#2B0A11`          | `#F6E9E7` | 16.8 : 1 / 16.5 : 1    |
+| Muted text     | `#6E4A50`          | `#C9A9AC` | 7.0 : 1 / 9.1 : 1      |
+| Accent         | `#800020` burgundy | `#F4C2C2` | 10.0 : 1 / 12.4 : 1    |
+| Hero / contact | cream on `#800020` | same      | 9.9 : 1                |
 
-The light theme uses a darker orange because `#E76F3C` on cream is only 2.7 : 1.
+Blush pink `#F4C2C2` is never used as text on light backgrounds: there it only works as a fill.
 
 ## Structure
 

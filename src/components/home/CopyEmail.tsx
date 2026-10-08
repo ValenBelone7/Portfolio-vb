@@ -30,9 +30,9 @@ export function CopyEmail({
     <button
       type="button"
       onClick={copy}
-      className="group glass inline-flex h-12 max-w-full items-center gap-3 rounded-full pr-5 pl-2 text-sm transition-colors hover:border-accent/60"
+      className="group inline-flex h-11 max-w-full items-center gap-3 rounded-lg border border-cream/30 pr-4 pl-1.5 font-mono text-xs tracking-[0.1em] text-cream uppercase transition-colors hover:border-blush"
     >
-      <span className="relative flex size-8 shrink-0 items-center justify-center rounded-full bg-accent text-accent-fg">
+      <span className="relative flex size-8 shrink-0 items-center justify-center rounded-md bg-cream text-wine">
         <svg
           className={`${icon} ${copied ? "scale-0 opacity-0" : "scale-100"}`}
           viewBox="0 0 24 24"
@@ -55,13 +55,10 @@ export function CopyEmail({
           <path d="M5 12l5 5L20 7" />
         </svg>
       </span>
-      <span className="truncate font-mono">{email}</span>
       <span className="sr-only" aria-live="polite">
         {copied ? copiedLabel : ""}
       </span>
-      <span aria-hidden="true" className="shrink-0 text-xs text-muted transition-colors group-hover:text-accent">
-        {copied ? copiedLabel : copyLabel}
-      </span>
+      <span className="shrink-0 transition-colors group-hover:text-blush">{copied ? copiedLabel : copyLabel}</span>
     </button>
   );
 }

@@ -8,24 +8,24 @@ export function Experience({ locale, dict }: { locale: Locale; dict: Dictionary 
   return (
     <Section id="experience" index="03" title={dict.sections.experience}>
       <ol className="relative space-y-10">
-        <ScrollLine className="left-[7px] lg:left-[calc(16rem+7px)]" />
+        <ScrollLine className="left-[7px] xl:left-[calc(12rem+7px)]" />
         {experience.map((job) => (
-          <li key={job.company} className="relative grid gap-4 pl-10 lg:grid-cols-[16rem_1fr] lg:gap-0 lg:pl-0">
+          <li key={job.company} className="relative grid gap-4 pl-10 xl:grid-cols-[12rem_1fr] xl:gap-0 xl:pl-0">
             <span
               aria-hidden="true"
-              className="absolute top-2 left-0 flex size-[15px] items-center justify-center rounded-full border border-accent/60 bg-bg lg:left-64"
+              className="absolute top-2 left-0 flex size-[15px] items-center justify-center rounded-full border border-accent/60 bg-bg xl:left-48"
             >
               <span className="size-[7px] rounded-full bg-accent" />
             </span>
 
-            <Reveal className="lg:pt-1 lg:pr-10 lg:text-right">
+            <Reveal className="xl:pt-1 xl:pr-8 xl:text-right">
               <p className="font-mono text-sm text-accent">{job.dates[locale]}</p>
               <p className="mt-1 text-sm text-muted">{job.location[locale]}</p>
             </Reveal>
 
-            <Reveal delay={0.08} className="lg:pl-10">
-              <div className="glass rounded-3xl p-6 transition-colors duration-300 hover:border-accent/40 sm:p-8">
-                <h3 className="font-display text-2xl font-semibold tracking-tight">{job.role[locale]}</h3>
+            <Reveal delay={0.08} className="xl:pl-8">
+              <div className="panel rounded-3xl p-6 transition-colors duration-300 hover:border-accent/40 sm:p-8">
+                <h3 className="font-display text-2xl">{job.role[locale]}</h3>
                 <p className="mt-1 text-lg">
                   {job.companyUrl ? (
                     <a

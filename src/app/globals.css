@@ -3,58 +3,48 @@
 /* El tema se fija con data-theme en <html> (ver ThemeScript). Sin JS, sigue al sistema. */
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
-/* Paleta: azul noche #0B1F33 + naranja quemado #E76F3C + crema #F0EEE9.
-   Contrastes verificados (AA): ver README. */
+/* Paleta: borgoña #800020 + rosa palo #F4C2C2, con crema y tinta derivadas.
+   Contrastes verificados (AA): ver README. Hero y contacto son siempre borgoña. */
 :root {
-  --bg: #f0eee9;
-  --bg-deep: #e7e4dc;
-  --fg: #0b1f33;
-  --muted: #4b5b6b;
-  /* #E76F3C no alcanza AA sobre crema: en claro se usa una variante más oscura. */
-  --accent: #b4471c;
-  --accent-bright: #e76f3c;
+  --bg: #faf5f2;
+  --bg-deep: #f3e8e4;
+  --fg: #2b0a11;
+  --muted: #6e4a50;
+  --accent: #800020;
   --accent-fg: #ffffff;
-  --glass: rgb(255 255 255 / 0.6);
-  --glass-strong: rgb(255 255 255 / 0.78);
-  --glass-border: rgb(11 31 51 / 0.1);
-  --glow-1: rgb(231 111 60 / 0.28);
-  --glow-2: rgb(11 31 51 / 0.14);
-  --grid: rgb(11 31 51 / 0.05);
+  --surface: #fffbf9;
+  --surface-strong: #f7e6e3;
+  --line: #e9d3d0;
+  --glow: rgb(128 0 32 / 0.08);
   color-scheme: light;
 }
 
 [data-theme="dark"] {
-  --bg: #0b1f33;
-  --bg-deep: #071626;
-  --fg: #f0eee9;
-  --muted: #a9b4c0;
-  --accent: #e76f3c;
-  --accent-bright: #ff8a57;
-  --accent-fg: #0b1f33;
-  --glass: rgb(240 238 233 / 0.05);
-  --glass-strong: rgb(240 238 233 / 0.09);
-  --glass-border: rgb(240 238 233 / 0.12);
-  --glow-1: rgb(231 111 60 / 0.3);
-  --glow-2: rgb(56 110 190 / 0.28);
-  --grid: rgb(240 238 233 / 0.04);
+  --bg: #1a0609;
+  --bg-deep: #120305;
+  --fg: #f6e9e7;
+  --muted: #c9a9ac;
+  --accent: #f4c2c2;
+  --accent-fg: #1a0609;
+  --surface: #240b10;
+  --surface-strong: #2e1015;
+  --line: #3d1a20;
+  --glow: rgb(244 194 194 / 0.1);
   color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
-    --bg: #0b1f33;
-    --bg-deep: #071626;
-    --fg: #f0eee9;
-    --muted: #a9b4c0;
-    --accent: #e76f3c;
-    --accent-bright: #ff8a57;
-    --accent-fg: #0b1f33;
-    --glass: rgb(240 238 233 / 0.05);
-    --glass-strong: rgb(240 238 233 / 0.09);
-    --glass-border: rgb(240 238 233 / 0.12);
-    --glow-1: rgb(231 111 60 / 0.3);
-    --glow-2: rgb(56 110 190 / 0.28);
-    --grid: rgb(240 238 233 / 0.04);
+    --bg: #1a0609;
+    --bg-deep: #120305;
+    --fg: #f6e9e7;
+    --muted: #c9a9ac;
+    --accent: #f4c2c2;
+    --accent-fg: #1a0609;
+    --surface: #240b10;
+    --surface-strong: #2e1015;
+    --line: #3d1a20;
+    --glow: rgb(244 194 194 / 0.1);
     color-scheme: dark;
   }
 }
@@ -65,21 +55,26 @@
   --color-fg: var(--fg);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
-  --color-accent-bright: var(--accent-bright);
   --color-accent-fg: var(--accent-fg);
-  --color-glass: var(--glass);
-  --color-glass-strong: var(--glass-strong);
-  --color-glass-border: var(--glass-border);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-line: var(--line);
+  /* Colores de marca fijos (no cambian con el tema). */
+  --color-wine: #800020;
+  --color-wine-deep: #5c0017;
+  --color-blush: #f4c2c2;
+  --color-cream: #fbf3ef;
+  --color-ink: #2b0a11;
+
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-body);
+  --font-mono: var(--font-mono-face);
   --font-display: var(--font-display);
 
   --animate-marquee: marquee var(--duration, 40s) linear infinite;
-  --animate-drift: drift 22s ease-in-out infinite alternate;
-  --animate-drift-slow: drift 30s ease-in-out infinite alternate-reverse;
   --animate-caret: caret 1s steps(1) infinite;
   --animate-ping-slow: ping 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
-  --animate-rise: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-rise: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-pop: pop 0.2s ease-out both;
   --animate-draw: draw 1s ease-in-out 0.7s forwards;
 
@@ -89,14 +84,6 @@
     }
     to {
       transform: translateX(calc(-100% - var(--gap, 1rem)));
-    }
-  }
-  @keyframes drift {
-    from {
-      transform: translate3d(-6%, -4%, 0) scale(1);
-    }
-    to {
-      transform: translate3d(6%, 5%, 0) scale(1.15);
     }
   }
   @keyframes rise {
@@ -116,6 +103,14 @@
       stroke-dashoffset: 0;
     }
   }
+  @keyframes grow {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
+  }
   @keyframes caret {
     50% {
       opacity: 0;
@@ -123,22 +118,40 @@
   }
 }
 
-/* Panel de vidrio: solo para capas elevadas (navegación, tarjetas). */
-@utility glass {
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
+/* Contenedor ancho: aprovecha los costados en pantallas grandes. */
+@utility shell {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 1440px;
+  padding-inline: 1.25rem;
+  @media (width >= 40rem) {
+    padding-inline: 2rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 3rem;
+  }
 }
 
-@utility glass-strong {
-  background: var(--glass-strong);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
+/* Superficies sólidas (sin vidrio). */
+@utility panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
 }
 
-/* Brillo que sigue al cursor. Las variables --mx/--my las setea useSpotlight. */
+@utility panel-strong {
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+}
+
+/* Etiqueta en mayúsculas espaciadas (referencia "Veyra"). */
+@utility eyebrow {
+  font-family: var(--font-mono-face);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Brillo suave que sigue al cursor. Las variables --mx/--my las setea el componente. */
 @utility spotlight {
   position: relative;
   isolation: isolate;
@@ -150,10 +163,22 @@
     border-radius: inherit;
     opacity: 0;
     transition: opacity 300ms;
-    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), var(--glow-1), transparent 60%);
+    background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 50%), var(--glow), transparent 65%);
   }
   &:hover::before {
     opacity: 1;
+  }
+}
+
+/* Subrayado que crece al pasar el mouse. */
+@utility link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms cubic-bezier(0.22, 1, 0.36, 1);
+  &:hover {
+    background-size: 100% 1px;
   }
 }
 
@@ -173,36 +198,28 @@
    Solo se oculta si hay JS (data-js lo pone ThemeScript), así sin JS todo se ve. */
 [data-reveal] {
   transition:
-    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s),
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s);
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s);
 }
 [data-js] [data-reveal]:not([data-in]) {
   opacity: 0;
   transform: translateY(var(--reveal-y, 24px));
 }
 
-@media (prefers-reduced-transparency: reduce) {
-  .glass,
-  .glass-strong {
-    background: var(--bg-deep);
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-}
-
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 6rem;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
   background: var(--bg);
   color: var(--fg);
+  font-size: 1.0625rem;
 }
 
 ::selection {
-  background: var(--accent);
-  color: var(--accent-fg);
+  background: #800020;
+  color: #fbf3ef;
 }
 
 :focus-visible {

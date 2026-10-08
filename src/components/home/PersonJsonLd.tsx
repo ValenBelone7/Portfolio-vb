@@ -1,4 +1,4 @@
-import photo from "@/assets/valentin-belone.webp";
+import photo from "@/assets/valentin-belone-bn.webp";
 import { profile } from "@/content/profile";
 import { getDictionary, localizePath, type Locale } from "@/i18n";
 

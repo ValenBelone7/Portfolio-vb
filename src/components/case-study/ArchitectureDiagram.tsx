@@ -7,8 +7,8 @@ function Box({ box, locale, variant = "main" }: { box: DiagramBox; locale: Local
     <div
       className={
         variant === "main"
-          ? "rounded-2xl border border-accent/50 bg-glass-strong px-4 py-3 shadow-[0_0_30px_-12px_var(--accent)] transition-transform duration-300 hover:-translate-y-0.5"
-          : "rounded-2xl border border-dashed border-glass-border bg-glass px-4 py-3 transition-colors duration-300 hover:border-accent/50"
+          ? "rounded-2xl border border-accent/50 bg-surface-strong px-4 py-3 shadow-[0_0_30px_-12px_var(--accent)] transition-transform duration-300 hover:-translate-y-0.5"
+          : "rounded-2xl border border-dashed border-line bg-surface px-4 py-3 transition-colors duration-300 hover:border-accent/50"
       }
     >
       <p className="font-mono text-sm font-semibold">{title}</p>
@@ -28,11 +28,8 @@ export function ArchitectureDiagram({ arch, locale }: { arch: Architecture; loca
               <Box box={node} locale={locale} />
               {i === arch.attachTo && arch.integrations.length > 0 && (
                 <>
-                  <span
-                    className="hidden h-px bg-linear-to-r from-accent/70 to-glass-border md:block"
-                    aria-hidden="true"
-                  />
-                  <ul className="grid gap-2 border-l border-glass-border pl-3 sm:grid-cols-2 md:border-l-0 md:pl-0">
+                  <span className="hidden h-px bg-linear-to-r from-accent/70 to-line md:block" aria-hidden="true" />
+                  <ul className="grid gap-2 border-l border-line pl-3 sm:grid-cols-2 md:border-l-0 md:pl-0">
                     {arch.integrations.map((side, j) => (
                       <li key={j}>
                         <Box box={side} locale={locale} variant="side" />
