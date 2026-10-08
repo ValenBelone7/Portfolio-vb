@@ -7,8 +7,8 @@ function Box({ box, locale, variant = "main" }: { box: DiagramBox; locale: Local
     <div
       className={
         variant === "main"
-          ? "rounded-lg border border-accent/60 bg-surface px-4 py-3"
-          : "rounded-lg border border-dashed border-border bg-surface px-4 py-3"
+          ? "rounded-2xl border border-accent/50 bg-glass-strong px-4 py-3 shadow-[0_0_30px_-12px_var(--accent)] transition-transform duration-300 hover:-translate-y-0.5"
+          : "rounded-2xl border border-dashed border-glass-border bg-glass px-4 py-3 transition-colors duration-300 hover:border-accent/50"
       }
     >
       <p className="font-mono text-sm font-semibold">{title}</p>
@@ -21,15 +21,18 @@ function Box({ box, locale, variant = "main" }: { box: DiagramBox; locale: Local
 export function ArchitectureDiagram({ arch, locale }: { arch: Architecture; locale: Locale }) {
   return (
     <figure>
-      <ol className="space-y-0">
+      <ol>
         {arch.flow.map((node, i) => (
           <li key={i}>
-            <div className="grid items-center gap-3 md:grid-cols-[16rem_2rem_1fr]">
+            <div className="grid items-center gap-3 md:grid-cols-[16rem_2.5rem_1fr]">
               <Box box={node} locale={locale} />
               {i === arch.attachTo && arch.integrations.length > 0 && (
                 <>
-                  <span className="hidden h-px bg-border md:block" aria-hidden="true" />
-                  <ul className="grid gap-2 border-l border-border pl-3 sm:grid-cols-2 md:border-l-0 md:pl-0">
+                  <span
+                    className="hidden h-px bg-linear-to-r from-accent/70 to-glass-border md:block"
+                    aria-hidden="true"
+                  />
+                  <ul className="grid gap-2 border-l border-glass-border pl-3 sm:grid-cols-2 md:border-l-0 md:pl-0">
                     {arch.integrations.map((side, j) => (
                       <li key={j}>
                         <Box box={side} locale={locale} variant="side" />
@@ -40,7 +43,7 @@ export function ArchitectureDiagram({ arch, locale }: { arch: Architecture; loca
               )}
             </div>
             {i < arch.flow.length - 1 && (
-              <div className="flex w-full items-center gap-2 py-2 pl-6 md:w-64">
+              <div className="flex w-full items-center gap-2 py-2.5 pl-6 md:w-64">
                 <span className="font-mono text-accent" aria-hidden="true">
                   ↓
                 </span>
@@ -54,7 +57,7 @@ export function ArchitectureDiagram({ arch, locale }: { arch: Architecture; loca
           </li>
         ))}
       </ol>
-      {arch.note && <figcaption className="mt-4 text-sm text-muted">{arch.note[locale]}</figcaption>}
+      {arch.note && <figcaption className="mt-5 text-sm text-muted">{arch.note[locale]}</figcaption>}
     </figure>
   );
 }

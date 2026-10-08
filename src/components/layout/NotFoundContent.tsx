@@ -9,7 +9,7 @@ export function NotFoundContent({ locale }: { locale: Locale }) {
       <p className="mt-4 text-muted">{t.text}</p>
       <a
         href={localizePath("/", locale)}
-        className="mt-8 inline-flex h-11 items-center rounded-md bg-accent px-5 text-sm font-medium text-accent-fg hover:opacity-90"
+        className="mt-8 inline-flex h-12 items-center rounded-full bg-accent px-6 text-sm font-medium text-accent-fg hover:opacity-90"
       >
         {t.home}
       </a>

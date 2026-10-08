@@ -20,7 +20,23 @@ production systems built for real clients, with a case study for each featured p
 
 ## Stack
 
-Next.js 16 (App Router, Cache Components) · React 19 · TypeScript · Tailwind CSS v4
+Next.js 16 (App Router, Cache Components) · React 19 · TypeScript · Tailwind CSS v4 · Embla Carousel
+
+## Design
+
+Glassmorphism on elevated layers only (navigation, cards) over a slowly drifting backdrop, with
+3D tilt on key cards. Every micro-interaction is CSS or a few lines of vanilla JS (one shared
+`IntersectionObserver` for scroll reveals), and all of it respects `prefers-reduced-motion` and
+`prefers-reduced-transparency`.
+
+| Token      | Light           | Dark                   | Contrast on background |
+| ---------- | --------------- | ---------------------- | ---------------------- |
+| Background | `#F0EEE9` cream | `#0B1F33` night blue   | n/a                    |
+| Text       | `#0B1F33`       | `#F0EEE9`              | 14.4 : 1               |
+| Muted text | `#4B5B6B`       | `#A9B4C0`              | 6.0 : 1 / 7.9 : 1      |
+| Accent     | `#B4471C`       | `#E76F3C` burnt orange | 4.7 : 1 / 5.4 : 1      |
+
+The light theme uses a darker orange because `#E76F3C` on cream is only 2.7 : 1.
 
 ## Structure
 

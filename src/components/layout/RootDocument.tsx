@@ -1,5 +1,7 @@
-import { geistMono, geistSans } from "@/app/fonts";
+import { display, geistMono, geistSans } from "@/app/fonts";
 import { getDictionary, type Locale } from "@/i18n";
+import { RevealScript } from "@/components/motion/RevealScript";
+import { Backdrop } from "./Backdrop";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { ThemeScript } from "./ThemeScript";
@@ -10,8 +12,12 @@ export function RootDocument({ locale, children }: { locale: Locale; children: R
 
   return (
     // suppressHydrationWarning: ThemeScript agrega data-theme antes de hidratar.
-    <html lang={locale} suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-      <body className="flex min-h-dvh flex-col font-sans">
+    <html
+      lang={locale}
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable} ${display.variable} antialiased`}
+    >
+      <body className="relative flex min-h-dvh flex-col font-sans">
         <ThemeScript />
         <a
           href="#main"
@@ -19,11 +25,13 @@ export function RootDocument({ locale, children }: { locale: Locale; children: R
         >
           {dict.skipToContent}
         </a>
+        <Backdrop />
         <Header locale={locale} dict={dict} />
         <main id="main" className="flex-1">
           {children}
         </main>
         <Footer dict={dict} />
+        <RevealScript />
       </body>
     </html>
   );

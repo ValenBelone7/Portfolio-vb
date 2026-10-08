@@ -4,7 +4,15 @@ export function ThemeToggle({ label }: { label: string }) {
   function toggle() {
     const root = document.documentElement;
     const next = root.dataset.theme === "dark" ? "light" : "dark";
-    root.dataset.theme = next;
+    const apply = () => {
+      root.dataset.theme = next;
+    };
+    // Transición suave entre temas donde el navegador lo soporta.
+    if ("startViewTransition" in document && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.startViewTransition(apply);
+    } else {
+      apply();
+    }
     try {
       localStorage.setItem("theme", next);
     } catch {
@@ -20,10 +28,10 @@ export function ThemeToggle({ label }: { label: string }) {
       onClick={toggle}
       aria-label={label}
       title={label}
-      className="inline-flex size-9 items-center justify-center rounded-md border border-border text-muted transition-colors hover:text-fg"
+      className="group inline-flex size-10 items-center justify-center rounded-full text-muted transition-colors hover:bg-glass-strong hover:text-fg"
     >
       <svg
-        className="size-4 dark:hidden"
+        className="size-[18px] transition-transform duration-500 group-hover:-rotate-12 dark:hidden"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -33,7 +41,7 @@ export function ThemeToggle({ label }: { label: string }) {
         <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
       </svg>
       <svg
-        className="hidden size-4 dark:block"
+        className="hidden size-[18px] transition-transform duration-700 group-hover:rotate-90 dark:block"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"

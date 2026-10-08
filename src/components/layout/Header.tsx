@@ -1,44 +1,40 @@
 import { localizePath, type Dictionary, type Locale } from "@/i18n";
 import { LanguageSwitch } from "./LanguageSwitch";
 import { MobileNav } from "./MobileNav";
+import { NavLinks } from "./NavLinks";
+import { ScrollProgress } from "./ScrollProgress";
 import { ThemeToggle } from "./ThemeToggle";
 
 export function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const home = localizePath("/", locale);
   // Anclas absolutas para que funcionen también desde los casos de estudio.
-  const anchor = (id: string) => `${home}#${id}`;
   const items = [
-    { href: anchor("projects"), label: dict.nav.projects },
-    { href: anchor("experience"), label: dict.nav.experience },
-    { href: anchor("skills"), label: dict.nav.skills },
-    { href: anchor("about"), label: dict.nav.about },
-    { href: anchor("contact"), label: dict.nav.contact },
-  ];
+    { id: "projects", label: dict.nav.projects },
+    { id: "experience", label: dict.nav.experience },
+    { id: "skills", label: dict.nav.skills },
+    { id: "about", label: dict.nav.about },
+    { id: "contact", label: dict.nav.contact },
+  ].map((i) => ({ ...i, href: `${home}#${i.id}` }));
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-bg/85 backdrop-blur">
-      <div className="relative mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-4 sm:px-6">
-        <a href={home} className="font-mono text-sm font-semibold tracking-tight">
-          valentin<span className="text-accent">.</span>belone
+    <header className="sticky top-3 z-40 px-3 sm:top-4 sm:px-6">
+      <div className="glass-strong relative mx-auto flex h-14 bg-[color-mix(in_srgb,var(--bg)_78%,transparent)] max-w-6xl items-center justify-between gap-4 rounded-full pr-2 pl-5 shadow-[0_8px_32px_-12px_rgb(0_0_0/0.35)]">
+        <a href={home} className="group font-display text-lg font-semibold tracking-tight">
+          valentín
+          <span className="inline-block text-accent transition-transform duration-300 group-hover:scale-150">.</span>
+          belone
         </a>
 
-        <nav aria-label={dict.nav.label} className="hidden md:block">
-          <ul className="flex items-center gap-6 text-sm">
-            {items.map((item) => (
-              <li key={item.href}>
-                <a href={item.href} className="text-muted transition-colors hover:text-fg">
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+        <nav aria-label={dict.nav.label} className="hidden lg:block">
+          <NavLinks items={items} />
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5">
           <LanguageSwitch text={dict.language.switchTo} label={dict.language.switchLabel} />
           <ThemeToggle label={dict.theme.toggle} />
           <MobileNav items={items} openLabel={dict.nav.openMenu} closeLabel={dict.nav.closeMenu} />
         </div>
+        <ScrollProgress />
       </div>
     </header>
   );

@@ -16,7 +16,7 @@ export function HomePage({ locale }: { locale: Locale }) {
   return (
     <>
       <PersonJsonLd locale={locale} />
-      <Hero dict={dict} />
+      <Hero locale={locale} dict={dict} />
       <Metrics locale={locale} dict={dict} />
       <FeaturedProjects locale={locale} dict={dict} />
       <MoreProjects locale={locale} dict={dict} />

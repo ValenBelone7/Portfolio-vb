@@ -17,19 +17,20 @@ function render({ eyebrow, title, subtitle, footerLeft, footerRight }: Slide) {
         flexDirection: "column",
         justifyContent: "space-between",
         padding: "72px 80px",
-        background: "linear-gradient(135deg, #090E1A 0%, #111C33 100%)",
-        color: "#E6EDF7",
+        background:
+          "radial-gradient(circle at 85% 15%, rgba(231,111,60,0.35), transparent 45%), linear-gradient(135deg, #0B1F33 0%, #071626 100%)",
+        color: "#F0EEE9",
       }}
     >
-      <div style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 26, color: "#9AA8BF" }}>
-        <div style={{ width: 14, height: 14, borderRadius: 7, background: "#38BD94" }} />
+      <div style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 26, color: "#A9B4C0" }}>
+        <div style={{ width: 14, height: 14, borderRadius: 7, background: "#E76F3C" }} />
         {eyebrow}
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div style={{ fontSize: 88, fontWeight: 700, letterSpacing: -2 }}>{title}</div>
-        <div style={{ fontSize: 44, color: "#38BD94", marginTop: 12 }}>{subtitle}</div>
+        <div style={{ fontSize: 44, color: "#E76F3C", marginTop: 12 }}>{subtitle}</div>
       </div>
-      <div style={{ display: "flex", justifyContent: "space-between", gap: 40, fontSize: 26, color: "#9AA8BF" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", gap: 40, fontSize: 26, color: "#A9B4C0" }}>
         <div style={{ display: "flex" }}>{footerLeft}</div>
         <div style={{ display: "flex" }}>{footerRight}</div>
       </div>

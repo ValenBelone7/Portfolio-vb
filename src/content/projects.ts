@@ -72,7 +72,7 @@ export const laboratorio: Project = {
     es: "Practico fundamentos de backend sin IA, organizados en fases, lecciones, teoría, ejercicios, repasos y notas. Existe para entender de verdad lo que programo y poder resolver ejercicios en vivo.",
     en: "I practice backend fundamentals without AI, organized into phases, lessons, theory, exercises, reviews and notes. It exists so I truly understand what I write and can solve exercises live.",
   },
-  stack: ["Python", "SQL"],
+  stack: [],
   links: [{ kind: "repo", href: "https://github.com/ValenBelone7/Laboratorio" }],
 };
 

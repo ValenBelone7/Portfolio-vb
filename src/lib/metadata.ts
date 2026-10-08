@@ -39,7 +39,7 @@ export function buildMetadata(locale: Locale, path = "/"): Metadata {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f6f8fb" },
-    { media: "(prefers-color-scheme: dark)", color: "#090e1a" },
+    { media: "(prefers-color-scheme: light)", color: "#f0eee9" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b1f33" },
   ],
 };

@@ -9,17 +9,17 @@ export function Footer({ dict }: { dict: Dictionary }) {
   ];
 
   return (
-    <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-5xl flex-col gap-4 px-4 py-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6">
+    <footer className="mx-auto w-full max-w-6xl px-4 pt-10 pb-10 sm:px-6">
+      <div className="flex flex-col gap-4 border-t border-glass-border pt-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
         <p>
-          {profile.name} · {dict.footer.role}
+          <span className="font-display text-fg">{profile.name}</span> · {dict.footer.role}
         </p>
-        <ul className="flex gap-5 font-mono text-xs">
+        <ul className="flex gap-6 font-mono text-xs">
           {links.map((link) => (
             <li key={link.label}>
               <a
                 href={link.href}
-                className="hover:text-fg"
+                className="underline-offset-4 transition-colors hover:text-accent hover:underline"
                 rel="noopener noreferrer"
                 target={link.href.startsWith("http") ? "_blank" : undefined}
               >
