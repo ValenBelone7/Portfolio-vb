@@ -1,61 +1,94 @@
 import Image from "next/image";
-import photo from "@/assets/valentin-belone-bn.webp";
+import bust from "@/assets/valentin-belone-busto.webp";
 import { about, education, facts } from "@/content/about";
 import { profile } from "@/content/profile";
 import type { Dictionary, Locale } from "@/i18n";
 import { Reveal } from "../motion/Reveal";
-import { Section } from "../ui";
 
-/** Sobre mí como ficha técnica: datos concretos primero, después los párrafos. */
+// Datos que ya aparecen en el hero (rol, stack) quedan afuera de la fila final.
+const SHORT_FACTS = new Set(["Base", "Busco", "Hoy", "Idiomas"]);
+
+/**
+ * Sobre mí según la referencia "about me": usuario arriba, texto justificado,
+ * "sobre mí" gigante con el busto en B/N encajado en el hueco, formación y firma.
+ */
 export function About({ locale, dict }: { locale: Locale; dict: Dictionary }) {
+  const [intro, interests, closing] = about[locale];
+  const [top, bottom] = dict.sections.aboutGiant;
+  const educationLine =
+    locale === "es"
+      ? `${education.degree.es} en el ${education.institution}, ${education.dates.es}. ${education.status.es}`
+      : `${education.degree.en} at ${education.institution}, ${education.dates.en}. ${education.status.en}`;
+
   return (
-    <Section id="about" index="05" title={dict.sections.about}>
-      <Reveal>
-        <div className="panel overflow-hidden rounded-2xl">
-          <div className="flex items-center gap-4 border-b border-line p-5 sm:p-6">
-            <Image
-              src={photo}
-              alt={profile.name}
-              placeholder="blur"
-              sizes="72px"
-              className="size-16 shrink-0 rounded-xl object-cover object-top sm:size-[72px]"
-            />
-            <div>
-              <p className="font-display text-xl">{profile.name}</p>
-              <p className="font-mono text-sm text-accent">{dict.hero.role}</p>
+    <section id="about" aria-labelledby="about-title" className="bg-stage text-chalk">
+      <div className="shell py-24 sm:py-32">
+        <div className="mx-auto max-w-4xl">
+          <Reveal>
+            <a
+              href={profile.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-underline mx-auto block w-fit pb-0.5 font-mono text-sm text-signal"
+            >
+              @ValenBelone7
+            </a>
+            <div className="mt-8 space-y-4 text-lg leading-relaxed hyphens-auto sm:text-justify sm:text-xl">
+              <p>{intro}</p>
+              <p className="text-chalk/80">{interests}</p>
             </div>
-          </div>
-          <dl className="divide-y divide-line">
-            {facts.map((f) => (
-              <div key={f.key.es} className="grid gap-1 px-5 py-3.5 sm:grid-cols-[9rem_1fr] sm:gap-6 sm:px-6">
-                <dt className="font-mono text-xs tracking-[0.08em] text-muted uppercase">{f.key[locale]}</dt>
-                <dd className="font-mono text-sm">{f.value[locale]}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </Reveal>
-
-      <div className="mt-10 space-y-5 text-lg leading-relaxed text-pretty">
-        {about[locale].map((p, i) => (
-          <Reveal key={p} delay={0.04 * i}>
-            <p className={i === 0 ? "" : "text-muted"}>{p}</p>
           </Reveal>
-        ))}
-      </div>
 
-      <Reveal delay={0.1}>
-        <div className="mt-10 border-t border-line pt-6">
-          <p className="eyebrow text-muted">{dict.project.subjects}</p>
-          <ul className="mt-3 flex flex-wrap gap-1.5">
-            {education.subjects[locale].map((s) => (
-              <li key={s} className="rounded-md border border-line px-2.5 py-1 font-mono text-xs text-muted">
-                {s}
-              </li>
-            ))}
-          </ul>
+          {/* "sobre / mí" gigante con el busto encajado abajo a la izquierda. */}
+          <div className="relative mt-14 sm:mt-20">
+            <Reveal y={40}>
+              <h2
+                id="about-title"
+                className="text-right font-display text-[clamp(4.2rem,16vw,13rem)] leading-[0.92] font-bold text-signal lowercase"
+              >
+                <span className="block">{top}</span>
+                <span className="block">{bottom}</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.15} y={30} className="absolute bottom-0 left-0 w-[46%] sm:left-[2%] sm:w-[40%]">
+              <Image
+                src={bust}
+                alt={profile.name}
+                sizes="(min-width: 896px) 360px, 46vw"
+                className="h-auto w-full mask-[linear-gradient(to_bottom,black_88%,transparent)]"
+              />
+            </Reveal>
+          </div>
+
+          <Reveal className="mt-14 space-y-4 text-lg leading-relaxed hyphens-auto sm:text-justify sm:mt-20 sm:text-xl">
+            <p>{closing}</p>
+            <p className="text-chalk/80">{educationLine}</p>
+          </Reveal>
+
+          {/* Firma: se "escribe" de izquierda a derecha al entrar en pantalla. */}
+          <Reveal className="mt-10 flex justify-end">
+            <p
+              aria-hidden="true"
+              className="font-signature text-6xl leading-none text-chalk sm:text-7xl [[data-in]_&]:animate-[write_1.8s_ease-out_0.3s_both] [[data-js]_&]:[clip-path:inset(0_100%_0_0)]"
+            >
+              {profile.name}
+            </p>
+          </Reveal>
+
+          <Reveal>
+            <dl className="mt-14 grid gap-x-8 gap-y-5 border-t border-chalk/15 pt-8 sm:grid-cols-2">
+              {facts
+                .filter((f) => SHORT_FACTS.has(f.key.es))
+                .map((f) => (
+                  <div key={f.key.es}>
+                    <dt className="font-mono text-[11px] tracking-[0.14em] text-chalk/60 uppercase">{f.key[locale]}</dt>
+                    <dd className="mt-1 font-mono text-sm">{f.value[locale]}</dd>
+                  </div>
+                ))}
+            </dl>
+          </Reveal>
         </div>
-      </Reveal>
-    </Section>
+      </div>
+    </section>
   );
 }

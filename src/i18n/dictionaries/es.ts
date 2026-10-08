@@ -39,6 +39,7 @@ export const es = {
     downloadCv: "Descargar CV",
   },
   sections: {
+    aboutGiant: ["sobre", "mí"],
     skillsIntro: "Cómo se conecta mi stack, de la interfaz a la base de datos.",
     layers: {
       frontend: "cliente",

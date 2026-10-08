@@ -1,4 +1,4 @@
-import { IBM_Plex_Mono, IBM_Plex_Serif, Martian_Mono } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Serif, Martian_Mono, Mrs_Saint_Delafield } from "next/font/google";
 
 /** Títulos: monoespaciada ancha, se lee como código. */
 export const display = Martian_Mono({
@@ -19,4 +19,11 @@ export const mono = IBM_Plex_Mono({
   variable: "--font-mono-face",
   subsets: ["latin"],
   weight: ["400", "500"],
+});
+
+/** Solo para la firma de "Sobre mí". */
+export const signature = Mrs_Saint_Delafield({
+  variable: "--font-signature",
+  subsets: ["latin"],
+  weight: "400",
 });

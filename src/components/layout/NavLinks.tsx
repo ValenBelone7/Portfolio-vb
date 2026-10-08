@@ -5,8 +5,10 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 type Item = { href: string; id: string; label: string };
 
 /**
- * Links de sección que resaltan la sección visible. En la barra, una píldora se
- * desliza hasta el link activo; en el índice lateral, se marca el borde.
+ * Links de sección que resaltan la sección visible.
+ * - Barra: una píldora marca la sección activa y sigue al mouse mientras recorre la
+ *   barra; el texto de cada link "rueda" hacia arriba y entra una copia en lima.
+ * - Índice lateral: se marca el borde izquierdo.
  */
 export function NavLinks({ items, variant = "toc" }: { items: Item[]; variant?: "bar" | "toc" }) {
   const vertical = variant === "toc";
@@ -30,12 +32,10 @@ export function NavLinks({ items, variant = "toc" }: { items: Item[]; variant?: 
     return () => observer.disconnect();
   }, [items]);
 
-  // Mueve la píldora al link activo (solo en la barra).
-  useLayoutEffect(() => {
+  // Mueve la píldora a un link, o la oculta si no hay ninguno.
+  function movePill(link: HTMLElement | null) {
     const pill = pillRef.current;
-    const list = listRef.current;
-    if (!pill || !list) return;
-    const link = active ? list.querySelector<HTMLElement>(`[data-id="${active}"]`) : null;
+    if (!pill) return;
     if (!link) {
       pill.style.opacity = "0";
       return;
@@ -43,10 +43,23 @@ export function NavLinks({ items, variant = "toc" }: { items: Item[]; variant?: 
     pill.style.opacity = "1";
     pill.style.width = `${link.offsetWidth}px`;
     pill.style.transform = `translateX(${link.offsetLeft}px)`;
-  }, [active]);
+  }
+
+  function activeLink() {
+    return active ? (listRef.current?.querySelector<HTMLElement>(`[data-id="${active}"]`) ?? null) : null;
+  }
+
+  useLayoutEffect(() => {
+    if (!vertical) movePill(activeLink());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active, vertical]);
 
   return (
-    <ul ref={listRef} className={`relative flex ${vertical ? "flex-col items-stretch" : "items-center"}`}>
+    <ul
+      ref={listRef}
+      onPointerLeave={vertical ? undefined : () => movePill(activeLink())}
+      className={`relative flex ${vertical ? "flex-col items-stretch" : "items-center"}`}
+    >
       {!vertical && (
         <span
           ref={pillRef}
@@ -61,17 +74,32 @@ export function NavLinks({ items, variant = "toc" }: { items: Item[]; variant?: 
             href={item.href}
             data-id={item.id}
             aria-current={active === item.id ? "true" : undefined}
+            onPointerEnter={vertical ? undefined : (e) => movePill(e.currentTarget)}
             className={
-              variant === "bar"
-                ? `relative block rounded-full px-4 py-2 font-mono text-xs transition-colors ${
-                    active === item.id ? "text-chalk" : "text-chalk/70 hover:text-chalk"
-                  }`
-                : `block border-l-2 py-1.5 pl-4 text-sm transition-colors duration-300 ${
+              vertical
+                ? `block border-l-2 py-1.5 pl-4 text-sm transition-colors duration-300 ${
                     active === item.id ? "border-accent text-fg" : "border-line text-muted hover:text-fg"
+                  }`
+                : `group/link relative block rounded-full px-4 py-2 font-mono text-xs transition-colors ${
+                    active === item.id ? "text-chalk" : "text-chalk/70 hover:text-chalk"
                   }`
             }
           >
-            {item.label}
+            {vertical ? (
+              item.label
+            ) : (
+              <span className="relative block overflow-hidden">
+                <span className="block transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/link:-translate-y-full">
+                  {item.label}
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 translate-y-full text-signal transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/link:translate-y-0"
+                >
+                  {item.label}
+                </span>
+              </span>
+            )}
           </a>
         </li>
       ))}

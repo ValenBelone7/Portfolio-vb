@@ -40,6 +40,7 @@ export const en: Dictionary = {
     downloadCv: "Download CV",
   },
   sections: {
+    aboutGiant: ["about", "me"],
     skillsIntro: "How my stack connects, from the interface to the database.",
     layers: {
       frontend: "client",

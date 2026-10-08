@@ -71,6 +71,7 @@
   --font-serif: var(--font-body);
   --font-mono: var(--font-mono-face);
   --font-display: var(--font-display);
+  --font-signature: var(--font-signature);
 
   --animate-marquee: marquee var(--duration, 40s) linear infinite;
   --animate-caret: caret 1s steps(1) infinite;
@@ -170,6 +171,14 @@
     }
     to {
       top: 100%;
+    }
+  }
+  @keyframes write {
+    from {
+      clip-path: inset(0 100% 0 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
     }
   }
   @keyframes caret {
