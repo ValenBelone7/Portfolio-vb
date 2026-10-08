@@ -28,7 +28,7 @@ export function ThemeToggle({ label }: { label: string }) {
       onClick={toggle}
       aria-label={label}
       title={label}
-      className="group inline-flex size-10 items-center justify-center rounded-full text-cream/75 transition-colors hover:bg-cream/10 hover:text-cream"
+      className="group inline-flex size-10 items-center justify-center rounded-full text-chalk/75 transition-colors hover:bg-chalk/10 hover:text-chalk"
     >
       <svg
         className="size-[18px] transition-transform duration-500 group-hover:-rotate-12 dark:hidden"

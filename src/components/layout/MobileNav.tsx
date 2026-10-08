@@ -20,7 +20,7 @@ export function MobileNav({ items, openLabel, closeLabel }: Props) {
         aria-expanded={open}
         aria-controls="mobile-nav"
         aria-label={open ? closeLabel : openLabel}
-        className="inline-flex size-10 items-center justify-center rounded-full text-cream/80 transition-colors hover:bg-cream/10 hover:text-cream"
+        className="inline-flex size-10 items-center justify-center rounded-full text-chalk/80 transition-colors hover:bg-chalk/10 hover:text-chalk"
       >
         <svg className="size-5" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
           <line x1="4" y1="8" x2="20" y2="8" className={`${line} ${open ? "translate-y-1 rotate-45" : ""}`} />
@@ -30,7 +30,7 @@ export function MobileNav({ items, openLabel, closeLabel }: Props) {
       {open && (
         <nav
           id="mobile-nav"
-          className="absolute inset-x-0 top-full animate-pop border-t border-cream/15 bg-wine px-3 pb-4 text-cream"
+          className="absolute inset-x-0 top-full mt-2 animate-pop rounded-3xl border border-chalk/10 bg-stage px-4 pb-3 text-chalk shadow-[0_18px_40px_-18px_rgb(0_0_0/0.55)]"
         >
           <ul>
             {items.map((item, i) => (
@@ -38,7 +38,7 @@ export function MobileNav({ items, openLabel, closeLabel }: Props) {
                 <a
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="block border-b border-cream/10 px-2 py-4 font-display text-3xl hover:text-blush"
+                  className="block border-b border-chalk/10 px-2 py-4 font-display text-xl last:border-0 hover:text-signal"
                 >
                   {item.label}
                 </a>

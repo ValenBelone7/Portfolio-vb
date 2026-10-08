@@ -52,3 +52,41 @@ export const languages: Localized<string[]> = {
   ],
   en: ["Spanish: native.", "English: intermediate. Fluent technical reading and listening, conversation in progress."],
 };
+
+// Ficha técnica de "Sobre mí". Fuente: PORTFOLIO_CONTEXT.md, secciones 2, 5 y 8.
+export const facts: { key: Localized; value: Localized }[] = [
+  { key: { es: "Rol", en: "Role" }, value: { es: "Desarrollador Backend", en: "Backend Developer" } },
+  {
+    key: { es: "Stack", en: "Stack" },
+    value: {
+      es: "Python · Django · Django REST Framework · PostgreSQL",
+      en: "Python · Django · Django REST Framework · PostgreSQL",
+    },
+  },
+  {
+    key: { es: "Base", en: "Based in" },
+    value: { es: "Córdoba, Argentina (UTC-3)", en: "Córdoba, Argentina (UTC-3)" },
+  },
+  {
+    key: { es: "Busco", en: "Looking for" },
+    value: { es: "Trabajo remoto estable, jornada completa", en: "A stable, full-time remote role" },
+  },
+  {
+    key: { es: "Hoy", en: "Currently" },
+    value: {
+      es: "Co-fundador en PB DevHouse · Desarrollador part-time en Criptodery",
+      en: "Co-founder at PB DevHouse · Part-time developer at Criptodery",
+    },
+  },
+  {
+    key: { es: "Formación", en: "Education" },
+    value: {
+      es: "Técnico Superior en Desarrollo de Software · ITEC · Dic 2026 (esperado)",
+      en: "Higher Technical Degree in Software Development · ITEC · Dec 2026 (expected)",
+    },
+  },
+  {
+    key: { es: "Idiomas", en: "Languages" },
+    value: { es: "Español nativo · Inglés intermedio", en: "Spanish (native) · English (intermediate)" },
+  },
+];

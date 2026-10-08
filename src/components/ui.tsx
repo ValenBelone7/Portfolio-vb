@@ -33,10 +33,7 @@ export function Section({
           <span className="h-px w-10 bg-accent/50" />
         </p>
       )}
-      <h2
-        id={`${id}-title`}
-        className="font-display text-5xl leading-[0.95] text-balance sm:text-6xl lg:text-[5.25rem]"
-      >
+      <h2 id={`${id}-title`} className="font-display text-4xl leading-[1.05] font-bold text-balance sm:text-5xl">
         {title}
       </h2>
       {intro && <p className="mt-5 max-w-md text-lg leading-relaxed text-pretty text-muted">{intro}</p>}

@@ -45,7 +45,7 @@ export function Lightbox({ shots, index, onChange, labels }: Props) {
       onClose={() => onChange(null)}
       onKeyDown={onKeyDown}
       onClick={(e) => e.target === e.currentTarget && onChange(null)}
-      className="m-auto max-h-none max-w-none bg-transparent p-0 backdrop:bg-[#2B0A11]/85 backdrop:backdrop-blur-md"
+      className="m-auto max-h-none max-w-none bg-transparent p-0 backdrop:bg-[#0B0D10]/85 backdrop:backdrop-blur-md"
     >
       {shot && (
         <div className="flex h-dvh w-screen flex-col items-center justify-center gap-4 p-4 sm:p-8">
@@ -55,7 +55,7 @@ export function Lightbox({ shots, index, onChange, labels }: Props) {
             sizes="100vw"
             className="h-auto max-h-[78dvh] w-auto max-w-full rounded-xl border border-white/10 object-contain shadow-2xl"
           />
-          <p className="max-w-2xl text-center text-sm text-[#FBF3EF]">{shot.alt}</p>
+          <p className="max-w-2xl text-center text-sm text-[#E9ECEF]">{shot.alt}</p>
           <div className="flex items-center gap-3">
             <button type="button" className={btn} onClick={() => go(-1)} aria-label={labels.prev}>
               <svg
@@ -69,7 +69,7 @@ export function Lightbox({ shots, index, onChange, labels }: Props) {
                 <path d="M15 18l-6-6 6-6" />
               </svg>
             </button>
-            <span className="font-mono text-xs text-[#C9A9AC]">
+            <span className="font-mono text-xs text-[#8B95A3]">
               {index! + 1} {labels.of} {shots.length}
             </span>
             <button type="button" className={btn} onClick={() => go(1)} aria-label={labels.next}>

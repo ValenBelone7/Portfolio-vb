@@ -24,22 +24,25 @@ Next.js 16 (App Router, Cache Components) · React 19 · TypeScript · Tailwind 
 
 ## Design
 
-Editorial layout on a wide 12-column grid: the hero sets the surname at display size behind a
-black-and-white cutout portrait, sections keep their titles in a sticky left column, and the
-contact section closes on the same burgundy band as the hero. Type is all serif (Instrument Serif
-for display, Newsreader for text) plus JetBrains Mono for technical details. Micro-interactions
-are CSS or a few lines of vanilla JS (one shared `IntersectionObserver` for scroll reveals) and
-respect `prefers-reduced-motion`.
+Built around the work itself: the hero sets "BACKEND" at display size behind an isometric diagram of
+the stack (client → API & logic → PostgreSQL) with requests and responses moving between layers.
+Skills are laid out as the path of a request, and "About" reads as a spec sheet. The header is a
+floating pill that compacts on scroll, hides while scrolling down and slides an indicator to the
+active section.
 
-| Token          | Light              | Dark      | Contrast on background |
-| -------------- | ------------------ | --------- | ---------------------- |
-| Background     | `#FAF5F2`          | `#1A0609` | n/a                    |
-| Text           | `#2B0A11`          | `#F6E9E7` | 16.8 : 1 / 16.5 : 1    |
-| Muted text     | `#6E4A50`          | `#C9A9AC` | 7.0 : 1 / 9.1 : 1      |
-| Accent         | `#800020` burgundy | `#F4C2C2` | 10.0 : 1 / 12.4 : 1    |
-| Hero / contact | cream on `#800020` | same      | 9.9 : 1                |
+Type: Martian Mono for headings, IBM Plex Serif for text and IBM Plex Mono for labels, which reads
+like technical documentation. Micro-interactions are CSS or a few lines of vanilla JS and respect
+`prefers-reduced-motion`.
 
-Blush pink `#F4C2C2` is never used as text on light backgrounds: there it only works as a fill.
+| Token          | Light            | Dark                  | Contrast on background |
+| -------------- | ---------------- | --------------------- | ---------------------- |
+| Background     | `#F3F3EF` paper  | `#0B0D10` graphite    | n/a                    |
+| Text           | `#0B0D10`        | `#E9ECEF`             | 17.5 : 1 / 16.4 : 1    |
+| Muted text     | `#525A66`        | `#8B95A3`             | 6.3 : 1 / 6.4 : 1      |
+| Accent         | `#3F6212` olive  | `#C6F432` signal lime | 6.4 : 1 / 15.2 : 1     |
+| Hero / contact | lime on graphite | same                  | 15.2 : 1               |
+
+Signal lime is never used as text on light backgrounds (1.15 : 1): there it only works as a fill.
 
 ## Structure
 

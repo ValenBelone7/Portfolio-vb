@@ -65,7 +65,7 @@ export function CaseStudyPage({ locale, slug }: { locale: Locale; slug: string }
   ].map((i) => ({ ...i, href: `#${i.id}` }));
 
   return (
-    <article className="shell pt-10 pb-24">
+    <article className="shell pt-28 pb-24">
       <Link
         href={`${localizePath("/", locale)}#projects`}
         className="group panel inline-flex h-10 items-center gap-2 rounded-full px-4 text-sm text-muted transition-colors hover:text-fg"
